@@ -1,0 +1,139 @@
+body {
+	background-image: url('../img/NavyStars.png');
+	background-attachment: fixed;
+	color: #000033;
+	margin: 0;
+}
+
+#top {
+	text-align: center;
+}
+
+#nav {
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	background-color: white;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.nav-item {
+	color: #000033;
+	flex-basis: 25%;
+	padding: 25px 10px;
+	border: 1px solid #CCC;
+	border-width: 0 1px;
+	text-decoration: none;
+}
+
+.nav-item:hover {
+	background-color: #DDD;
+}
+
+#logo img {
+	height: 150px;
+	padding: 5px 10px;
+}
+
+#heading {
+	margin-top: 100px;
+}
+
+#wrapper {
+	margin-top: 68px;
+}
+
+#wrapper > div {
+	padding: 10% 15%;
+}
+
+.content {
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 10px 20px;
+}
+
+#introImage {
+	display: block;
+	width: 100%;
+	max-width: 550px;
+	margin: 20px auto;
+}
+
+#venue {
+	background-image: url('../img/Homestead5.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+}
+
+#amenities {
+	background-image: url('../img/kennebunk_beach.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+}
+
+#rsvp {
+	background-image: url('../img/invitation.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center -50px;
+}
+
+#codeEntry {
+	text-align: center;
+	padding: 100px 0;
+}
+
+#rsvp .content svg {
+	display: block;
+	margin: auto;
+}
+
+text {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  -webkit-animation: draw 8s forwards;
+}
+@-webkit-keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+text {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  -webkit-animation: draw 8s forwards;
+  -moz-animation: draw 8s forwards;
+  -o-animation: draw 8s forwards;
+  -ms-animation: draw 8s forwards;
+  animation: draw 8s forwards;
+}
+@-webkit-keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-moz-keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-o-keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-ms-keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
