@@ -35,6 +35,7 @@ $(function(){
 	} else {
     	$('#logo img').data('size','small');
     	$('#logo img').height(60);
+    	$('#logo img').css('background-color', '#000033');
 	}
 });
 
@@ -48,7 +49,7 @@ $(window).scroll(function(){
 	            $('#logo img').css('background-color', '#000033');
 	            $('#logo img').stop().animate({
 	                height:'60px'
-	            },600);
+	            },500);
 	        }
 	    }
 	    else
@@ -59,7 +60,7 @@ $(window).scroll(function(){
 	            $('#logo img').css('background-color', 'initial');
 	            $('#logo img').stop().animate({
 	                height:'200px'
-	            },600);
+	            },500);
 	        }  
 	    }
 	}

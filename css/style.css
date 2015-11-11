@@ -95,15 +95,35 @@ body {
 	background-position: center center;
 }
 
+#venue .content {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#venueInnerImg {
+	flex-basis: 35%;
+	padding-right: 20px;
+}
+
+#venueInnerImg img {
+	height: 100%;
+	width: 100%;
+}
+
+#venueText {
+	flex-basis: 62%;
+	flex-grow: 1;
+}
+
 #amenities {
-	background-image: url('../img/KennebunkMap.png');
+	background-image: url('../img/KennebunkMap.jpg');
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
 }
 
 #rsvp {
-	background-image: url('../img/envelope_logo.png');
+	background-image: url('../img/envelope_logo.jpg');
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
