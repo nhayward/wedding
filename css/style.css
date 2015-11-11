@@ -3,6 +3,7 @@ body {
 	background-attachment: fixed;
 	color: #000033;
 	margin: 0;
+	min-width: 658px;
 }
 
 #top {
@@ -13,20 +14,28 @@ body {
 	display: flex;
 	justify-content: center;
 	position: fixed;
-	background-color: white;
 	top: 0;
 	left: 0;
 	width: 100%;
+	min-width: 658px;
 	z-index: 1;
+}
+
+@media screen and (max-width: 657px) {
+	#nav {
+		position: static;
+	}
 }
 
 .nav-item {
 	color: #000033;
+	background-color: white;
 	flex-basis: 25%;
 	padding: 25px 10px;
 	border: 1px solid #CCC;
 	border-width: 0 1px;
 	text-decoration: none;
+	max-height: 20px;
 }
 
 .nav-item:hover {
@@ -34,8 +43,13 @@ body {
 }
 
 #logo img {
-	height: 150px;
 	padding: 5px 10px;
+}
+
+@media screen and (max-width: 922px) {
+	#logo img {
+		display: none !important;
+	}
 }
 
 #heading {
@@ -46,8 +60,20 @@ body {
 	margin-top: 68px;
 }
 
+@media screen and (max-width: 657px) {
+	#wrapper {
+		margin-top: 0;
+	}
+}
+
 #wrapper > div {
-	padding: 10% 15%;
+	padding: 200px 15%;
+}
+
+@media screen and (max-width: 922px) {
+	#wrapper > div {
+		padding: 100px 5%;
+	}
 }
 
 .content {
@@ -70,17 +96,17 @@ body {
 }
 
 #amenities {
-	background-image: url('../img/kennebunk_beach.jpg');
+	background-image: url('../img/KennebunkMap.png');
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
 }
 
 #rsvp {
-	background-image: url('../img/invitation.jpg');
+	background-image: url('../img/envelope_logo.png');
 	background-size: cover;
 	background-attachment: fixed;
-	background-position: center -50px;
+	background-position: center center;
 }
 
 #codeEntry {
