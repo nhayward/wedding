@@ -115,6 +115,20 @@ body {
 	flex-grow: 1;
 }
 
+#party {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 200px 0 !important;
+}
+
+#party > div {
+	flex-basis: 450px;
+	flex-grow: 1;
+	margin: 50px 20px;
+	border-radius: 20px;
+}
+
 #amenities {
 	background-image: url('../img/KennebunkMap.jpg');
 	background-size: cover;
