@@ -123,10 +123,16 @@ body {
 }
 
 #party > div {
-	flex-basis: 450px;
+	flex-basis: 425px;
 	flex-grow: 1;
 	margin: 50px 20px;
 	border-radius: 20px;
+}
+
+#party > div img {
+	float: left;
+	max-height: 399px;
+	margin-right: 20px;
 }
 
 #amenities {
