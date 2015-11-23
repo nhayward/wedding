@@ -65,3 +65,15 @@ $(window).scroll(function(){
 	    }
 	}
 });
+
+$(function() {
+    $("#registry img")
+        .mouseover(function() {
+            var src = $(this).attr("src").replace("_gray.png", ".png");
+            $(this).attr("src", src);
+        })
+        .mouseout(function() { 
+            var src = $(this).attr("src").match(/[^\.]+/) + "_gray.png";
+            $(this).attr("src", src);
+        });
+});

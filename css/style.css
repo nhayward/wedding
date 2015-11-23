@@ -79,6 +79,7 @@ body {
 .content {
 	background-color: rgba(255, 255, 255, 0.8);
 	padding: 10px 20px;
+	border-radius: 20px;
 }
 
 #introImage {
@@ -140,6 +141,34 @@ body {
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
+}
+
+#registry > div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+#registry > div img {
+	flex-basis: 400px;
+}
+
+#registry > div img:first-child {
+	flex-basis: 100%;
+}
+
+#hfLogo {
+	width: 850px;
+}
+
+#bbbLogo, #aLogo {
+	width: 400px;
+	height: 100%;
+	margin: auto;
+}
+
+#hfLogo img, #bbbLogo img, #aLogo img {
+	width: 100%;
 }
 
 #rsvp {
