@@ -1,4 +1,6 @@
 body {
+	font-family: Georgia, serif;
+	/*font-family: "Trebuchet MS", Helvetica, sans-serif;*/
 	background-image: url('../img/NavyStars.png');
 	background-attachment: fixed;
 	color: #000033;
@@ -87,6 +89,10 @@ body {
 	width: 100%;
 	max-width: 550px;
 	margin: 20px auto;
+}
+
+#intro {
+	text-align: center;
 }
 
 #venue {
