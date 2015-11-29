@@ -146,7 +146,12 @@ body {
 #registry > div {
 	display: flex;
 	flex-wrap: wrap;
+	align-items: center;
 	justify-content: space-around;
+}
+
+#registry > div a {
+	margin: 20px;
 }
 
 #registry > div img {
