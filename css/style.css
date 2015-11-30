@@ -1,7 +1,7 @@
 body {
 	font-family: Georgia, serif;
 	/*font-family: "Trebuchet MS", Helvetica, sans-serif;*/
-	background-image: url('../img/NavyStars.png');
+	background-image: url('../img/backgrounds/NavyStars.png');
 	background-attachment: fixed;
 	color: #000033;
 	margin: 0;
@@ -97,7 +97,7 @@ body {
 }
 
 #venue {
-	background-image: url('../img/Homestead5.jpg');
+	background-image: url('../img/backgrounds/Homestead5.jpg');
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
@@ -145,7 +145,7 @@ body {
 }
 
 #amenities {
-	background-image: url('../img/KennebunkMap.jpg');
+	background-image: url('../img/backgrounds/KennebunkMap.jpg');
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
@@ -191,7 +191,7 @@ body {
 }
 
 #rsvp {
-	background-image: url('../img/envelope_logo.jpg');
+	background-image: url('../img/backgrounds/envelope_logo.jpg');
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
@@ -250,4 +250,12 @@ text {
   100% {
     stroke-dashoffset: 0;
   }
+}
+
+#rsvp .content p {
+	text-align: center;
+}
+
+#rsvp .content form {
+	line-height: 2;
 }
