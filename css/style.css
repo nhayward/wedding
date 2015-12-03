@@ -257,6 +257,8 @@ text {
 	position: relative;
 	text-align: center;
 	padding: 40px;
+	font-weight: bold;
+	font-family: Papyrus, fantasy;
 }
 
 #rsvp .content #invite #upper_right {
@@ -306,7 +308,7 @@ text {
 #rsvp .content #rsvpForm {
 	line-height: 2;
 	max-width: 600px;
-	border: 1px solid black;
+	border: 5px solid #060761;
 	margin: auto;
 	padding: 10px;
 }

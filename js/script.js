@@ -134,7 +134,7 @@ function checkCodeAndGetInvite() {
 						'<div id="upper_left"></div>' +
 						'<div id="lower_left"></div>' +
 						'<div id="lower_right"></div>' +
-						'<svg width="330" height="75">' +
+						'<svg width="320" height="75">' +
 							'<text y="70" fill="none" stroke="#000033" stroke-width="1" font-size="50">' +
 								'You\'re Invited!' +
 							'</text>' +
