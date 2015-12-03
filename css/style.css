@@ -37,7 +37,8 @@ body {
 	border: 1px solid #CCC;
 	border-width: 0 1px;
 	text-decoration: none;
-	max-height: 20px;
+	/*max-height: 20px;*/
+	height: 100%;
 }
 
 .nav-item:hover {
@@ -252,10 +253,56 @@ text {
   }
 }
 
-#rsvp .content p {
+#rsvp .content #invite {
+	position: relative;
 	text-align: center;
+	padding: 40px;
 }
 
-#rsvp .content form {
+#rsvp .content #invite #upper_right {
+	position: absolute;
+	background-image: url(../img/scrollwork_corner_navy_tr);
+	background-repeat: no-repeat;
+	background-size: cover;
+	top: 0;
+	right: 0%;
+	height: 200px;
+	width: 200px;
+}
+
+#rsvp .content #invite #upper_left {
+	position: absolute;
+	background-image: url(../img/scrollwork_corner_navy_tl);
+	background-repeat: no-repeat;
+	background-size: cover;
+	top: 0;
+	left: 0;
+	height: 200px;
+	width: 200px;
+}
+
+#rsvp .content #invite #lower_left {
+	position: absolute;
+	background-image: url(../img/scrollwork_corner_navy_bl);
+	background-repeat: no-repeat;
+	background-size: cover;
+	bottom: 0%;
+	left: 0;
+	height: 200px;
+	width: 200px;
+}
+
+#rsvp .content #invite #lower_right {
+	bottom: 0%;
+	background-image: url(../img/scrollwork_corner_navy_br);
+	background-repeat: no-repeat;
+	background-size: cover;
+	right: 0%;
+	position: absolute;
+	height: 200px;
+	width: 200px;
+}
+
+#rsvp .content #rsvpForm {
 	line-height: 2;
 }

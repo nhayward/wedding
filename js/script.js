@@ -1,32 +1,32 @@
 $(document).ready(function() {
 	$('a[href^="#"]').on('click', function(event) {
-	    var target = $(this).attr('href');
-	    if (target.length) {
-	        event.preventDefault();
-	        $('html, body').animate({
-	            scrollTop: $(target).offset().top - 70
-	        }, 1000);
-	    }
+		var target = $(this).attr('href');
+		if (target.length) {
+			event.preventDefault();
+			$('html, body').animate({
+				scrollTop: $(target).offset().top - 70
+			}, 1000);
+		}
 	});
 
 	if ($(document).scrollTop() <= 45) {
-    	$('#logo img').data('size','big');
-    	$('#logo img').height(200);
+		$('#logo img').data('size','big');
+		$('#logo img').height(200);
 	} else {
-    	$('#logo img').data('size','small');
-    	$('#logo img').height(60);
-    	$('#logo img').css('background-color', '#000033');
+		$('#logo img').data('size','small');
+		$('#logo img').height(60);
+		$('#logo img').css('background-color', '#000033');
 	}
 
-    $("#registry img")
-        .mouseover(function() {
-            var src = $(this).attr("src").replace("_gray.png", ".png");
-            $(this).attr("src", src);
-        })
-        .mouseout(function() { 
-            var src = $(this).attr("src").match(/[^\.]+/) + "_gray.png";
-            $(this).attr("src", src);
-        });
+	$("#registry img")
+		.mouseover(function() {
+			var src = $(this).attr("src").replace("_gray.png", ".png");
+			$(this).attr("src", src);
+		})
+		.mouseout(function() { 
+			var src = $(this).attr("src").match(/[^\.]+/) + "_gray.png";
+			$(this).attr("src", src);
+		});
 
 	clickOnEnter();
 });
@@ -71,25 +71,31 @@ function postContactToGoogle() {
 			if (valid && !rsvpd) {
 				$('#codeEntry p').remove();
 				$('#rsvp .content').html(
-					'<svg width="330" height="75">' +
-						'<text y="70" fill="none" stroke="#000033" stroke-width="1" font-size="50">' +
-							'You\'re Invited!' +
-						'</text>' +
-					'</svg>' +
-					'<p>Dear ' + name + ',</p>' +
-					'<p>Carly Thomas Bornstein &<br />' +
-					'Nicholas William Hayward<br />' +
-					'together with their families<br />' +
-					'invite you to share and celebrate at their wedding</p>' +
-					'<p>Saturday, September 24, 2016<br />' +
-					'at 4:30 in the afternoon</p>' +
-					'<p>The Homestead Farm<br />' +
-					'74 Old North Berwick Road<br />' +
-					'Lyman, Maine 04002</p>' +
-					'<p>Dinner and dancing to follow.<br />' +
-					'Semi-Formal (It’s outside, so heels might be a problem!)</p>' +
-					'<p>RSVP by [insert date] or we will use at least 4 forms of communication to hassle you</p><br />' +
-					'<form action="action_page.php" method="post">' +
+					'<div id="invite">' +
+						'<div id="upper_right"></div>' +
+						'<div id="upper_left"></div>' +
+						'<div id="lower_left"></div>' +
+						'<div id="lower_right"></div>' +
+						'<svg width="330" height="75">' +
+							'<text y="70" fill="none" stroke="#000033" stroke-width="1" font-size="50">' +
+								'You\'re Invited!' +
+							'</text>' +
+						'</svg>' +
+						'<p>Dear ' + name + ',</p>' +
+						'<p>Carly Thomas Bornstein &<br />' +
+						'Nicholas William Hayward<br />' +
+						'together with their families<br />' +
+						'invite you to share and celebrate at their wedding</p>' +
+						'<p>Saturday, September 24, 2016<br />' +
+						'at 4:30 in the afternoon</p>' +
+						'<p>The Homestead Farm<br />' +
+						'74 Old North Berwick Road<br />' +
+						'Lyman, Maine 04002</p>' +
+						'<p>Dinner and dancing to follow.<br />' +
+						'Semi-Formal (It’s outside, so heels might be a problem!)</p>' +
+						'<p>RSVP by [insert date] or we will use at least 4 forms of communication to hassle you.</p><br />' +
+					'</div>' +
+					'<div id="rsvpForm">' +
 						'We are <input type="text" name="introAdjective" placeholder="Adjective"> to hear about your upcoming nuptials!<br />' +
 						'<input type="text" name="names" placeholder="Guest Names" maxlength="500" required/> is/are ' +
 						'<input type="text" name="adjective" placeholder="Adjective"> to ' +
@@ -108,8 +114,8 @@ function postContactToGoogle() {
 							'<option value="would like">would like</option>' +
 							'<option value="will not need">will not need</option>' +
 						'</select> a seat on the shuttle from the King\'s Port Inn, if possible.<br />' +
-						'<input type="submit" value="I\'m ready for you to see my answer!" onclick="alert(\'Info received! Thank you!\')">' +
-					'</form>'
+						'<input type="submit" value="I\'m ready for you to see my answer!">' +
+					'</div>'
 				);
 			    $.post(
 			    	"https://script.google.com/macros/s/AKfycbwfBOa4cvvhXfb7Ug3s-A9W2O9Yt13tPdMFzw-LMIAVVjsAqDY/exec",
