@@ -41,12 +41,61 @@ function clickOnEnter() {
     });
 }
 
+function whichForm(numParty) {
+	if (numParty == 1) {
+		return '<div id="rsvpForm">' +
+					'<input type="text" name="exclamation" placeholder="Exclamation" autofocus>!<br />' +
+					'I am <input type="text" name="introAdjective" placeholder="Adjective"> to hear about your upcoming nuptials!<br />' +
+					'<input type="text" name="names" placeholder="Guest Name" maxlength="500" required/> is ' +
+					'<input type="text" name="adjective" placeholder="Adjective"> to ' +
+					'<select name="attendance" required>' +
+				 		'<option value="" disabled selected>Select</option>' +
+				 		'<option value="attend">attend</option>' +
+						'<option value="miss">miss</option>' +
+					'</select> the celebration. I can\'t eat ' +
+					'<input type="text" name="dietaryRestriction" placeholder="Dietary Restrictions" maxlength="500">.<br />' +
+					'I will only dance if I hear ' +
+					'<input type="text" name="songRequest" placeholder="Song/Artist" maxlength="500">. I ' +
+					'<select name="shuttle">' +
+						'<option value="" disabled selected>Select</option>' +
+						'<option value="would like">would like</option>' +
+						'<option value="will not need">will not need</option>' +
+						'<option value="may need">may need</option>' +
+					'</select> a seat on the shuttle from the hotel, if possible.<br />' +
+					'<input type="submit" value="I\'m ready for you to see my answer!">' +
+				'</div>';
+	} else {
+		return '<div id="rsvpForm">' +
+					'We are <input type="text" name="introAdjective" placeholder="Adjective"> to hear about your upcoming nuptials!<br />' +
+					'<input type="text" name="names" placeholder="Guest Names" maxlength="500" required/> is/are ' +
+					'<input type="text" name="adjective" placeholder="Adjective"> to ' +
+					'<select name="attendance" required>' +
+				 		'<option value="" disabled selected>Select</option>' +
+				 		'<option value="attend">attend</option>' +
+						'<option value="miss">miss</option>' +
+					'</select> the celebration. There are ' +
+					'<input type="number" name="number" min="0" max="5" placeholder="#" required/> people in our party. ' +
+					'<input type="number" name="numberFood" min="0" max="5" placeholder="#"> of us can\'t eat ' +
+					'<input type="text" name="dietaryRestriction" placeholder="Dietary Restrictions" maxlength="500">.<br />' +
+					'We will only dance if we hear ' +
+					'<input type="text" name="songRequest" placeholder="Song/Artist" maxlength="500">. I/We ' +
+					'<select name="shuttle">' +
+						'<option value="" disabled selected>Select</option>' +
+						'<option value="would like">would like</option>' +
+						'<option value="will not need">will not need</option>' +
+					'</select> a seat on the shuttle from the King\'s Port Inn, if possible.<br />' +
+					'<input type="submit" value="I\'m ready for you to see my answer!">' +
+				'</div>';
+	}
+}
+
 function postContactToGoogle() {
 	$("#submit").prop("disabled", true);
 	var code = $('[name=code]').val();
 	var valid = false;
 	var rsvpd = false;
 	var name = "";
+	var numInParty = 0;
 	var url1 = 'https://spreadsheets.google.com/feeds/list/1_gjZsuyP6N4RUyFzogFlbLQRBc90uHNJKycGuIBHEwg/1/public/values?alt=json';
 	$.getJSON(url1).success(function(data) {
 		var guests = data.feed.entry;
@@ -54,6 +103,7 @@ function postContactToGoogle() {
 			if (code == guests[i].gsx$code.$t) {
 				valid = true;
 				name = guests[i].gsx$name.$t;
+				numInParty = guests[i].gsx$numberinparty.$t;
 				break;
 			}	
 		}
@@ -95,32 +145,12 @@ function postContactToGoogle() {
 						'Semi-Formal (It’s outside, so heels might be a problem!)</p>' +
 						'<p>RSVP by [insert date] or we will use at least 4 forms of communication to hassle you.</p><br />' +
 					'</div>' +
-					'<div id="rsvpForm">' +
-						'We are <input type="text" name="introAdjective" placeholder="Adjective"> to hear about your upcoming nuptials!<br />' +
-						'<input type="text" name="names" placeholder="Guest Names" maxlength="500" required/> is/are ' +
-						'<input type="text" name="adjective" placeholder="Adjective"> to ' +
-						'<select name="attendance" required>' +
-					 		'<option value="" disabled selected>Select</option>' +
-					 		'<option value="attend">attend</option>' +
-							'<option value="miss">miss</option>' +
-						'</select> the celebration. There are ' +
-						'<input type="number" name="number" min="0" max="5" placeholder="#" required/> people in our party. ' +
-						'<input type="number" name="numberFood" min="0" max="5" placeholder="#"> of us can\'t eat ' +
-						'<input type="text" name="dietaryRestriction" placeholder="Dietary Restrictions" maxlength="500">.<br />' +
-						'We will only dance if we hear ' +
-						'<input type="text" name="songRequest" placeholder="Song/Artist" maxlength="500">. I/We ' +
-						'<select name="shuttle">' +
-							'<option value="" disabled selected>Select</option>' +
-							'<option value="would like">would like</option>' +
-							'<option value="will not need">will not need</option>' +
-						'</select> a seat on the shuttle from the King\'s Port Inn, if possible.<br />' +
-						'<input type="submit" value="I\'m ready for you to see my answer!">' +
-					'</div>'
+					'<br /><br />' + whichForm(numInParty)
 				);
-			    $.post(
-			    	"https://script.google.com/macros/s/AKfycbwfBOa4cvvhXfb7Ug3s-A9W2O9Yt13tPdMFzw-LMIAVVjsAqDY/exec",
-			    	{"Code": code, "Name": name, "Response": code}
-			    );
+			    // $.post(
+			    // 	"https://script.google.com/macros/s/AKfycbwfBOa4cvvhXfb7Ug3s-A9W2O9Yt13tPdMFzw-LMIAVVjsAqDY/exec",
+			    // 	{"Code": code, "Name": name, "Response": code}
+			    // );
 			} else if (valid && rsvpd) {
 		        $('#codeEntry p').remove();
 				$('#codeEntry').append('<p>You have already RSVP\'d. Thanks!</p>');
