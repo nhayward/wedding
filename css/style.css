@@ -305,4 +305,8 @@ text {
 
 #rsvp .content #rsvpForm {
 	line-height: 2;
+	max-width: 600px;
+	border: 1px solid black;
+	margin: auto;
+	padding: 10px;
 }

@@ -29,13 +29,18 @@ $(document).ready(function() {
 		});
 
 	clickOnEnter();
+	
+	$('#submitCode').prop("disabled", false);
+
 });
+
+var code, name, multiples;
 
 function clickOnEnter() {
     $('[name=code]').keypress(function(e) {
         if (e.which == 13) {
-            $('#submit').click();
-            $("#submit").prop("disabled", true);
+            $('#submitCode').click();
+            $('#submitCode').prop("disabled", true);
             $('[name=code]').unbind("keypress");
         }
     });
@@ -43,6 +48,7 @@ function clickOnEnter() {
 
 function whichForm(numParty) {
 	if (numParty == 1) {
+		multiples = false;
 		return '<div id="rsvpForm">' +
 					'<input type="text" name="exclamation" placeholder="Exclamation" autofocus>!<br />' +
 					'I am <input type="text" name="introAdjective" placeholder="Adjective"> to hear about your upcoming nuptials!<br />' +
@@ -62,9 +68,10 @@ function whichForm(numParty) {
 						'<option value="will not need">will not need</option>' +
 						'<option value="may need">may need</option>' +
 					'</select> a seat on the shuttle from the hotel, if possible.<br />' +
-					'<input type="submit" value="I\'m ready for you to see my answer!">' +
+					'<button id="submitForm" type="button" onclick="postContactToGoogle()">I\'m ready for you to see my answer!</button>' +
 				'</div>';
 	} else {
+		multiples = true;
 		return '<div id="rsvpForm">' +
 					'We are <input type="text" name="introAdjective" placeholder="Adjective"> to hear about your upcoming nuptials!<br />' +
 					'<input type="text" name="names" placeholder="Guest Names" maxlength="500" required/> is/are ' +
@@ -84,20 +91,19 @@ function whichForm(numParty) {
 						'<option value="would like">would like</option>' +
 						'<option value="will not need">will not need</option>' +
 					'</select> a seat on the shuttle from the King\'s Port Inn, if possible.<br />' +
-					'<input type="submit" value="I\'m ready for you to see my answer!">' +
+					'<button id="submitForm" type="button" onclick="postContactToGoogle()">I\'m ready for you to see my answer!</button>' +
 				'</div>';
 	}
 }
 
-function postContactToGoogle() {
-	$("#submit").prop("disabled", true);
-	var code = $('[name=code]').val();
+function checkCodeAndGetInvite() {
+	$('#submitCode').prop("disabled", true);
+	code = $('[name=code]').val();
 	var valid = false;
 	var rsvpd = false;
-	var name = "";
 	var numInParty = 0;
-	var url1 = 'https://spreadsheets.google.com/feeds/list/1_gjZsuyP6N4RUyFzogFlbLQRBc90uHNJKycGuIBHEwg/1/public/values?alt=json';
-	$.getJSON(url1).success(function(data) {
+	var guestSheet = 'https://spreadsheets.google.com/feeds/list/1_gjZsuyP6N4RUyFzogFlbLQRBc90uHNJKycGuIBHEwg/1/public/values?alt=json';
+	$.getJSON(guestSheet).success(function(data) {
 		var guests = data.feed.entry;
 		for (var i = 0; i < guests.length; i++) {
 			if (code == guests[i].gsx$code.$t) {
@@ -107,13 +113,15 @@ function postContactToGoogle() {
 				break;
 			}	
 		}
-		var url2 = 'https://spreadsheets.google.com/feeds/list/1_gjZsuyP6N4RUyFzogFlbLQRBc90uHNJKycGuIBHEwg/2/public/values?alt=json';
-		$.getJSON(url2).success(function(data) {
+		var responseSheet = 'https://spreadsheets.google.com/feeds/list/1_gjZsuyP6N4RUyFzogFlbLQRBc90uHNJKycGuIBHEwg/2/public/values?alt=json';
+		$.getJSON(responseSheet).success(function(data) {
+			var response = "";
 			var responses = data.feed.entry;
 			if (responses) {
 				for (var j = 0; j < responses.length; j++) {
 					if (code == responses[j].gsx$code.$t) {
 						rsvpd = true;
+						response = responses[j].gsx$response.$t;
 						break;
 					}	
 				}
@@ -145,25 +153,51 @@ function postContactToGoogle() {
 						'Semi-Formal (It’s outside, so heels might be a problem!)</p>' +
 						'<p>RSVP by [insert date] or we will use at least 4 forms of communication to hassle you.</p><br />' +
 					'</div>' +
-					'<br /><br />' + whichForm(numInParty)
+					'<br />' + whichForm(numInParty)
 				);
-			    // $.post(
-			    // 	"https://script.google.com/macros/s/AKfycbwfBOa4cvvhXfb7Ug3s-A9W2O9Yt13tPdMFzw-LMIAVVjsAqDY/exec",
-			    // 	{"Code": code, "Name": name, "Response": code}
-			    // );
 			} else if (valid && rsvpd) {
 		        $('#codeEntry p').remove();
-				$('#codeEntry').append('<p>You have already RSVP\'d. Thanks!</p>');
-				$("#submit").prop("disabled", false);
+				$('#codeEntry').append(
+					'<p>You have already RSVP\'d. Thanks! See your response below:</p>' +
+					'<p>' + response + '</p>'
+				);
+				$('#submitCode').prop("disabled", false);
 				clickOnEnter();
 		    } else {
 		    	$('#codeEntry p').remove();
 				$('#codeEntry').append('<p>Sorry, that code is invalid</p>');
-				$("#submit").prop("disabled", false);
+				$('#submitCode').prop("disabled", false);
 				clickOnEnter();
 		    }
 		});
 	});
+}
+
+function postContactToGoogle() {
+	var response = "";
+	if (multiples) {
+		response += "We are " + $('[name=introAdjective]').val() + " to hear about your upcoming nuptials!\n" +
+					$('[name=names]').val() + " is/are " + $('[name=adjective]').val() + " to " +
+					$('[name=attendance]').val() + " the celebration. " +
+					"There are " + $('[name=number]').val() + " people in our party. " +
+					$('[name=numberFood]').val() + " of us can\'t eat " +
+					$('[name=dietaryRestriction]').val() + ".\n" +
+					"We will only dance if we hear " + $('[name=songRequest]').val() + ". " +
+					"I/We " + $('[name=shuttle]').val() +
+					" a seat on the shuttle from the King\'s Port Inn, if possible.";
+	} else {
+		response += "I am " + $('[name=introAdjective]').val() + " to hear about your upcoming nuptials!\n" +
+					$('[name=names]').val() + " is " + $('[name=adjective]').val() + " to " +
+					$('[name=attendance]').val() + " the celebration. " +
+					"I can\'t eat " + $('[name=dietaryRestriction]').val() + ".\n" +
+					"I will only dance if I hear " + $('[name=songRequest]').val() + ". " +
+					"I " + $('[name=shuttle]').val() +
+					" a seat on the shuttle from the King\'s Port Inn, if possible.";
+	}
+	$.post(
+		"https://script.google.com/macros/s/AKfycbwfBOa4cvvhXfb7Ug3s-A9W2O9Yt13tPdMFzw-LMIAVVjsAqDY/exec",
+		{"Code": code, "Name": name, "Response": response}
+	);
 }
 
 $(window).scroll(function(){
