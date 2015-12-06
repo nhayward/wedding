@@ -121,7 +121,7 @@ function checkCodeAndGetInvite() {
 	$.getJSON(guestSheet).success(function(data) {
 		var guests = data.feed.entry;
 		for (var i = 0; i < guests.length; i++) {
-			if (code == guests[i].gsx$code.$t) {
+			if (code.toUpperCase() == guests[i].gsx$code.$t.toUpperCase()) {
 				valid = true;
 				name = guests[i].gsx$name.$t;
 				numInParty = guests[i].gsx$numberinparty.$t;
@@ -134,7 +134,7 @@ function checkCodeAndGetInvite() {
 			var responses = data.feed.entry;
 			if (responses) {
 				for (var j = 0; j < responses.length; j++) {
-					if (code == responses[j].gsx$code.$t) {
+					if (code.toUpperCase() == responses[j].gsx$code.$t.toUpperCase()) {
 						rsvpd = true;
 						response = responses[j].gsx$response.$t;
 						break;
