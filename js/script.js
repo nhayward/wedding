@@ -1,3 +1,8 @@
+var safari = (navigator.userAgent.indexOf("Safari") != -1 && navigator.userAgent.indexOf("Chrome") == -1);
+var ieOrEdge = (navigator.userAgent.indexOf('MSIE') != -1 ||
+				navigator.appVersion.indexOf('Trident/') != -1 ||
+				navigator.userAgent.indexOf('Edge') != -1);
+
 $(document).ready(function() {
 	$('a[href^="#"]').on('click', function(event) {
 		var target = $(this).attr('href');
@@ -12,9 +17,15 @@ $(document).ready(function() {
 	if ($(document).scrollTop() <= 45) {
 		$('#logo img').data('size','big');
 		$('#logo img').height(200);
+		if (safari) {
+			$('#logo').width(545);
+		}
 	} else {
 		$('#logo img').data('size','small');
 		$('#logo img').height(59);
+		if (safari) {
+			$('#logo').width(163);
+		}
 		$('#logo img').css('background-color', '#000033');
 	}
 
@@ -124,6 +135,10 @@ function checkCodeAndGetInvite() {
 					}	
 				}
 			}
+			var invitedText = '<text y="70" fill="none" stroke="#000033" stroke-width="1" font-size="50">';
+			if (ieOrEdge) {
+				invitedText = '<text y="70" stroke="#000033" stroke-width="1" font-size="50">';
+			}
 			var invite = 
 					'<div id="invite">' +
 						'<div id="upper_right"></div>' +
@@ -131,7 +146,7 @@ function checkCodeAndGetInvite() {
 						'<div id="lower_left"></div>' +
 						'<div id="lower_right"></div>' +
 						'<svg width="325" height="80">' +
-							'<text y="70" fill="none" stroke="#000033" stroke-width="1" font-size="50">' +
+							invitedText +
 								'You\'re Invited!' +
 							'</text>' +
 						'</svg>' +
@@ -219,9 +234,13 @@ function postContactToGoogle() {
 				" a seat on the shuttle from the King\'s Port Inn, if possible.";
 			}
 		}
+		var thankText = '<text y="55" fill="none" stroke="#000033" stroke-width="1" font-size="50">';
+		if (ieOrEdge) {
+			thankText = '<text y="55" stroke="#000033" stroke-width="1" font-size="50">';
+		}
 		$('#rsvp .content #rsvpForm').html(
 			'<svg width="253" height="75">' +
-				'<text y="55" fill="none" stroke="#000033" stroke-width="1" font-size="50">' +
+				thankText +
 					'Thank You!' +
 				'</text>' +
 			'</svg>'
@@ -251,22 +270,36 @@ $(window).scroll(function() {
 	    {
 	        if($('#logo img').data('size') == 'big')
 	        {
-	            $('#logo img').data('size','small');
-	            $('#logo img').css('background-color', '#000033');
-	            $('#logo img').stop().animate({
-	                height:'59px'
-	            },500);
+	        	if (safari) {
+	        		$('#logo img').data('size','small');
+		            $('#logo img').css('background-color', '#000033');
+		            $('#logo img').height(59);
+		            $('#logo').width(163);
+	        	} else {
+		            $('#logo img').data('size','small');
+		            $('#logo img').css('background-color', '#000033');
+		            $('#logo img').stop().animate({
+		                height:'59px'
+		            },500);
+	        	}
 	        }
 	    }
 	    else
 	    {
 	        if($('#logo img').data('size') == 'small')
 	        {
-	            $('#logo img').data('size','big');
-	            $('#logo img').css('background-color', 'initial');
-	            $('#logo img').stop().animate({
-	                height:'200px'
-	            },500);
+	        	if (safari) {
+	        		$('#logo img').data('size','big');
+		            $('#logo img').css('background-color', 'initial');
+		            $('#logo').width(545);
+		            $('#logo img').height(200);
+	        	} else {
+		            $('#logo img').data('size','big');
+		            $('#logo img').css('background-color', 'initial');
+		            $('#logo img').stop().animate({
+		                height:'200px'
+		            },500);
+	        	}
 	        }  
 	    }
 	}
