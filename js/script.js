@@ -1,6 +1,8 @@
-var safari = (navigator.userAgent.indexOf("Safari") != -1 && navigator.userAgent.indexOf("Chrome") == -1);
-var ieOrEdge = (navigator.userAgent.indexOf('MSIE') != -1 ||
-				navigator.appVersion.indexOf('Trident/') != -1 ||
+var safari = (navigator.userAgent.indexOf("Safari") != -1 && 
+			  navigator.userAgent.indexOf("Chrome") == -1);
+
+var ieOrEdge = (navigator.userAgent.indexOf('MSIE') != -1 || 
+				navigator.appVersion.indexOf('Trident/') != -1 || 
 				navigator.userAgent.indexOf('Edge') != -1);
 
 $(document).ready(function() {
@@ -61,6 +63,7 @@ function whichForm(numParty) {
 	if (numParty == 1) {
 		multiples = false;
 		return '<div id="rsvpForm">' +
+					'Dear Nick and Carly,<br />' +
 					'I am <input type="text" name="introAdjective" placeholder="Adjective"> to hear about your upcoming nuptials!<br />' +
 					'<input type="text" name="names" placeholder="Guest Name" maxlength="500" required/> is ' +
 					'<input type="text" name="adjective" placeholder="Adjective"> to ' +
@@ -77,11 +80,13 @@ function whichForm(numParty) {
 						'<option value="would like">would like</option>' +
 						'<option value="will not need">will not need</option>' +
 					'</select> a seat on the shuttle from the hotel, if possible.<br />' +
-					'<button id="submitForm" type="button" onclick="postContactToGoogle()">I\'m ready for you to see my answer!</button>' +
+					'Sincerely,<br />' + name + '<br />' +
+					'<button id="submitForm" type="button" onclick="postContactToGoogle()">RSVP</button>' +
 				'</div>';
 	} else {
 		multiples = true;
 		return '<div id="rsvpForm">' +
+					'Dear Nick and Carly,<br />' +
 					'We are <input type="text" name="introAdjective" placeholder="Adjective"> to hear about your upcoming nuptials!<br />' +
 					'<input type="text" name="names" placeholder="Guest Names" maxlength="500" required/> is/are ' +
 					'<input type="text" name="adjective" placeholder="Adjective"> to ' +
@@ -100,7 +105,8 @@ function whichForm(numParty) {
 						'<option value="would like">would like</option>' +
 						'<option value="will not need">will not need</option>' +
 					'</select> a seat on the shuttle from the King\'s Port Inn, if possible.<br />' +
-					'<button id="submitForm" type="button" onclick="postContactToGoogle()">I\'m ready for you to see my answer!</button>' +
+					'Sincerely,<br />' + name + '<br />' +
+					'<button id="submitForm" type="button" onclick="postContactToGoogle()">RSVP</button>' +
 				'</div>';
 	}
 }
