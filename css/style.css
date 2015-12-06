@@ -210,11 +210,6 @@ a {
 	margin: auto;
 }
 
-@-webkit-keyframes draw {
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
 text {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
