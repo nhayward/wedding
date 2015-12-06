@@ -212,15 +212,6 @@ a {
 	margin: auto;
 }
 
-text {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  -webkit-animation: draw 8s forwards;
-  -moz-animation: draw 8s forwards;
-  -o-animation: draw 8s forwards;
-  -ms-animation: draw 8s forwards;
-  animation: draw 8s forwards;
-}
 @-webkit-keyframes draw {
   100% {
     stroke-dashoffset: 0;
