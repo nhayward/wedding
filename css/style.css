@@ -8,6 +8,10 @@ body {
 	min-width: 658px;
 }
 
+a {
+	/*color: blue;*/
+}
+
 #top {
 	text-align: center;
 }
@@ -30,19 +34,19 @@ body {
 }
 
 .nav-item {
-	color: #000033;
-	background-color: white;
+	color: #D7D6D4;
+	background-color: #000033;
 	flex-basis: 25%;
 	padding: 25px 10px;
-	border: 1px solid #CCC;
-	border-width: 0 1px;
+	/*border: 1px solid #CCC;*/
+	/*border-width: 0 1px;*/
 	text-decoration: none;
 	/*max-height: 20px;*/
 	height: 100%;
 }
 
 .nav-item:hover {
-	background-color: #DDD;
+	background-color: #282828;
 }
 
 #logo img {
@@ -212,6 +216,10 @@ text {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   -webkit-animation: draw 8s forwards;
+  -moz-animation: draw 8s forwards;
+  -o-animation: draw 8s forwards;
+  -ms-animation: draw 8s forwards;
+  animation: draw 8s forwards;
 }
 @-webkit-keyframes draw {
   100% {
