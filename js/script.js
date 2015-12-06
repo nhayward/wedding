@@ -156,7 +156,7 @@ function checkCodeAndGetInvite() {
 		        $('#codeEntry p').remove();
 				$('#rsvp .content').html(invite +
 					'<div id="rsvpForm">' +
-						'<p>You have already RSVP\'d. Thanks! See your response below:</p>' +
+						'<p style="text-align: center;">You have already RSVP\'d. Thanks! See your response below:</p>' +
 						'<p>' + response + '</p>' +
 					'</div>'
 				);
@@ -173,26 +173,51 @@ function checkCodeAndGetInvite() {
 }
 
 function postContactToGoogle() {
-	if ($('[name=names]').val() && $('[name=attendance]').val() && $('[name=number]').val()) {
+	if ($('[name=names]').val() && $('[name=attendance]').val() && 
+		((multiples && $('[name=number]').val()) || !multiples)) {
 		var response = "";
 		if (multiples) {
-			response += "We are " + $('[name=introAdjective]').val() + " to hear about your upcoming nuptials!\n" +
-						$('[name=names]').val() + " is/are " + $('[name=adjective]').val() + " to " +
-						$('[name=attendance]').val() + " the celebration. " +
-						"There are " + $('[name=number]').val() + " people in our party. " +
-						$('[name=numberFood]').val() + " of us can\'t eat " +
-						$('[name=dietaryRestriction]').val() + ".\n" +
-						"We will only dance if we hear " + $('[name=songRequest]').val() + ". " +
-						"I/We " + $('[name=shuttle]').val() +
-						" a seat on the shuttle from the King\'s Port Inn, if possible.";
+			if ($('[name=introAdjective]').val()) {
+				response += "We are " + $('[name=introAdjective]').val() + " to hear about your upcoming nuptials!\n";
+			}
+			if ($('[name=adjective]').val()) {
+				response += $('[name=names]').val() + " is/are " + $('[name=adjective]').val() + " to ";
+			} else {
+				response += $('[name=names]').val() + " is/are going to ";
+			}
+			response += $('[name=attendance]').val() + " the celebration. " +
+				"There are " + $('[name=number]').val() + " people in our party. ";
+			if ($('[name=numberFood]').val() && $('[name=dietaryRestriction]').val()) {
+				response += $('[name=numberFood]').val() + " of us can\'t eat " +
+					$('[name=dietaryRestriction]').val() + ".\n";
+			}
+			if ($('[name=songRequest]').val()) {
+				response += "We will only dance if we hear " + $('[name=songRequest]').val() + ". ";
+			}
+			if ($('[name=shuttle]').val()) {
+				response += "I/We " + $('[name=shuttle]').val() +
+				" a seat on the shuttle from the King\'s Port Inn, if possible.";
+			}
 		} else {
-			response += "I am " + $('[name=introAdjective]').val() + " to hear about your upcoming nuptials!\n" +
-						$('[name=names]').val() + " is " + $('[name=adjective]').val() + " to " +
-						$('[name=attendance]').val() + " the celebration. " +
-						"I can\'t eat " + $('[name=dietaryRestriction]').val() + ".\n" +
-						"I will only dance if I hear " + $('[name=songRequest]').val() + ". " +
-						"I " + $('[name=shuttle]').val() +
-						" a seat on the shuttle from the King\'s Port Inn, if possible.";
+			if ($('[name=introAdjective]').val()) {
+				response += "I am " + $('[name=introAdjective]').val() + " to hear about your upcoming nuptials!\n";
+			}
+			if ($('[name=adjective]').val()) {
+				response += $('[name=names]').val() + " is " + $('[name=adjective]').val() + " to ";
+			} else {
+				response += $('[name=names]').val() + " is going to ";
+			}
+			response += $('[name=attendance]').val() + " the celebration. ";
+			if ($('[name=dietaryRestriction]').val()) {
+				response += "I can\'t eat " + $('[name=dietaryRestriction]').val() + ".\n";
+			}
+			if ($('[name=songRequest]').val()) {
+				response += "I will only dance if I hear " + $('[name=songRequest]').val() + ". ";
+			}
+			if ($('[name=shuttle]').val()) {
+				response += "I " + $('[name=shuttle]').val() +
+				" a seat on the shuttle from the King\'s Port Inn, if possible.";
+			}
 		}
 		$('#rsvp .content #rsvpForm').html(
 			'<svg width="253" height="75">' +
