@@ -14,7 +14,7 @@ $(document).ready(function() {
 		$('#logo img').height(200);
 	} else {
 		$('#logo img').data('size','small');
-		$('#logo img').height(60);
+		$('#logo img').height(59);
 		$('#logo img').css('background-color', '#000033');
 	}
 
@@ -130,7 +130,7 @@ function checkCodeAndGetInvite() {
 						'<div id="upper_left"></div>' +
 						'<div id="lower_left"></div>' +
 						'<div id="lower_right"></div>' +
-						'<svg width="320" height="75">' +
+						'<svg width="325" height="80">' +
 							'<text y="70" fill="none" stroke="#000033" stroke-width="1" font-size="50">' +
 								'You\'re Invited!' +
 							'</text>' +
@@ -254,7 +254,7 @@ $(window).scroll(function() {
 	            $('#logo img').data('size','small');
 	            $('#logo img').css('background-color', '#000033');
 	            $('#logo img').stop().animate({
-	                height:'60px'
+	                height:'59px'
 	            },500);
 	        }
 	    }
