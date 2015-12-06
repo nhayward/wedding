@@ -262,7 +262,7 @@ text {
 
 #rsvp .content #invite #upper_right {
 	position: absolute;
-	background-image: url(../img/scrollwork_corner_navy_tr);
+	background-image: url(../img/scrollwork_corner_navy_tr.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	top: 5px;
@@ -273,7 +273,7 @@ text {
 
 #rsvp .content #invite #upper_left {
 	position: absolute;
-	background-image: url(../img/scrollwork_corner_navy_tl);
+	background-image: url(../img/scrollwork_corner_navy_tl.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	top: 5px;
@@ -284,7 +284,7 @@ text {
 
 #rsvp .content #invite #lower_left {
 	position: absolute;
-	background-image: url(../img/scrollwork_corner_navy_bl);
+	background-image: url(../img/scrollwork_corner_navy_bl.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	bottom: 0%;
@@ -295,7 +295,7 @@ text {
 
 #rsvp .content #invite #lower_right {
 	bottom: 0%;
-	background-image: url(../img/scrollwork_corner_navy_br);
+	background-image: url(../img/scrollwork_corner_navy_br.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	right: 0%;
