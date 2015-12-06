@@ -256,7 +256,7 @@ text {
 #rsvp .content #invite {
 	position: relative;
 	text-align: center;
-	padding: 40px;
+	padding: 40px 45px;
 	font-weight: bold;
 	font-family: Papyrus, fantasy;
 }
@@ -266,7 +266,7 @@ text {
 	background-image: url(../img/scrollwork_corner_navy_tr);
 	background-repeat: no-repeat;
 	background-size: cover;
-	top: 0;
+	top: 5px;
 	right: 0%;
 	height: 200px;
 	width: 200px;
@@ -277,7 +277,7 @@ text {
 	background-image: url(../img/scrollwork_corner_navy_tl);
 	background-repeat: no-repeat;
 	background-size: cover;
-	top: 0;
+	top: 5px;
 	left: 0;
 	height: 200px;
 	width: 200px;
@@ -309,6 +309,6 @@ text {
 	line-height: 2;
 	max-width: 600px;
 	border: 5px solid #060761;
-	margin: auto;
+	margin: 20px auto;
 	padding: 10px;
 }

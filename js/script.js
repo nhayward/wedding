@@ -50,7 +50,6 @@ function whichForm(numParty) {
 	if (numParty == 1) {
 		multiples = false;
 		return '<div id="rsvpForm">' +
-					'<input type="text" name="exclamation" placeholder="Exclamation" autofocus>!<br />' +
 					'I am <input type="text" name="introAdjective" placeholder="Adjective"> to hear about your upcoming nuptials!<br />' +
 					'<input type="text" name="names" placeholder="Guest Name" maxlength="500" required/> is ' +
 					'<input type="text" name="adjective" placeholder="Adjective"> to ' +
@@ -66,7 +65,6 @@ function whichForm(numParty) {
 						'<option value="" disabled selected>Select</option>' +
 						'<option value="would like">would like</option>' +
 						'<option value="will not need">will not need</option>' +
-						'<option value="may need">may need</option>' +
 					'</select> a seat on the shuttle from the hotel, if possible.<br />' +
 					'<button id="submitForm" type="button" onclick="postContactToGoogle()">I\'m ready for you to see my answer!</button>' +
 				'</div>';
@@ -126,9 +124,7 @@ function checkCodeAndGetInvite() {
 					}	
 				}
 			}
-			if (valid && !rsvpd) {
-				$('#codeEntry p').remove();
-				$('#rsvp .content').html(
+			var invite = 
 					'<div id="invite">' +
 						'<div id="upper_right"></div>' +
 						'<div id="upper_left"></div>' +
@@ -152,14 +148,17 @@ function checkCodeAndGetInvite() {
 						'<p>Dinner and dancing to follow.<br />' +
 						'Semi-Formal (It’s outside, so heels might be a problem!)</p>' +
 						'<p>RSVP by [insert date] or we will use at least 4 forms of communication to hassle you.</p><br />' +
-					'</div>' +
-					'<br />' + whichForm(numInParty)
-				);
+					'</div>';
+			if (valid && !rsvpd) {
+				$('#codeEntry p').remove();
+				$('#rsvp .content').html(invite + whichForm(numInParty));
 			} else if (valid && rsvpd) {
 		        $('#codeEntry p').remove();
-				$('#codeEntry').append(
-					'<p>You have already RSVP\'d. Thanks! See your response below:</p>' +
-					'<p>' + response + '</p>'
+				$('#rsvp .content').html(invite +
+					'<div id="rsvpForm">' +
+						'<p>You have already RSVP\'d. Thanks! See your response below:</p>' +
+						'<p>' + response + '</p>' +
+					'</div>'
 				);
 				$('#submitCode').prop("disabled", false);
 				clickOnEnter();
@@ -174,33 +173,54 @@ function checkCodeAndGetInvite() {
 }
 
 function postContactToGoogle() {
-	var response = "";
-	if (multiples) {
-		response += "We are " + $('[name=introAdjective]').val() + " to hear about your upcoming nuptials!\n" +
-					$('[name=names]').val() + " is/are " + $('[name=adjective]').val() + " to " +
-					$('[name=attendance]').val() + " the celebration. " +
-					"There are " + $('[name=number]').val() + " people in our party. " +
-					$('[name=numberFood]').val() + " of us can\'t eat " +
-					$('[name=dietaryRestriction]').val() + ".\n" +
-					"We will only dance if we hear " + $('[name=songRequest]').val() + ". " +
-					"I/We " + $('[name=shuttle]').val() +
-					" a seat on the shuttle from the King\'s Port Inn, if possible.";
+	if ($('[name=names]').val() && $('[name=attendance]').val() && $('[name=number]').val()) {
+		var response = "";
+		if (multiples) {
+			response += "We are " + $('[name=introAdjective]').val() + " to hear about your upcoming nuptials!\n" +
+						$('[name=names]').val() + " is/are " + $('[name=adjective]').val() + " to " +
+						$('[name=attendance]').val() + " the celebration. " +
+						"There are " + $('[name=number]').val() + " people in our party. " +
+						$('[name=numberFood]').val() + " of us can\'t eat " +
+						$('[name=dietaryRestriction]').val() + ".\n" +
+						"We will only dance if we hear " + $('[name=songRequest]').val() + ". " +
+						"I/We " + $('[name=shuttle]').val() +
+						" a seat on the shuttle from the King\'s Port Inn, if possible.";
+		} else {
+			response += "I am " + $('[name=introAdjective]').val() + " to hear about your upcoming nuptials!\n" +
+						$('[name=names]').val() + " is " + $('[name=adjective]').val() + " to " +
+						$('[name=attendance]').val() + " the celebration. " +
+						"I can\'t eat " + $('[name=dietaryRestriction]').val() + ".\n" +
+						"I will only dance if I hear " + $('[name=songRequest]').val() + ". " +
+						"I " + $('[name=shuttle]').val() +
+						" a seat on the shuttle from the King\'s Port Inn, if possible.";
+		}
+		$('#rsvp .content #rsvpForm').html(
+			'<svg width="253" height="75">' +
+				'<text y="55" fill="none" stroke="#000033" stroke-width="1" font-size="50">' +
+					'Thank You!' +
+				'</text>' +
+			'</svg>'
+		);
+		$.post(
+			"https://script.google.com/macros/s/AKfycbwfBOa4cvvhXfb7Ug3s-A9W2O9Yt13tPdMFzw-LMIAVVjsAqDY/exec",
+			{"Code": code, "Name": name, "Response": response}
+		);
 	} else {
-		response += "I am " + $('[name=introAdjective]').val() + " to hear about your upcoming nuptials!\n" +
-					$('[name=names]').val() + " is " + $('[name=adjective]').val() + " to " +
-					$('[name=attendance]').val() + " the celebration. " +
-					"I can\'t eat " + $('[name=dietaryRestriction]').val() + ".\n" +
-					"I will only dance if I hear " + $('[name=songRequest]').val() + ". " +
-					"I " + $('[name=shuttle]').val() +
-					" a seat on the shuttle from the King\'s Port Inn, if possible.";
+		alert("Please fill out all required fields");
+		$('#rsvpForm input, #rsvpForm select').css("box-shadow", "initial");
+		if (!$('[name=names]').val()) {
+			$('[name=names]').css("box-shadow", "0 0 3px 1px #CC0000");
+		}
+		if (!$('[name=attendance]').val()) {
+			$('[name=attendance]').css("box-shadow", "0 0 3px 1px #CC0000");
+		}
+		if (!$('[name=number]').val()) {
+			$('[name=number]').css("box-shadow", "0 0 3px 1px #CC0000");
+		}
 	}
-	$.post(
-		"https://script.google.com/macros/s/AKfycbwfBOa4cvvhXfb7Ug3s-A9W2O9Yt13tPdMFzw-LMIAVVjsAqDY/exec",
-		{"Code": code, "Name": name, "Response": response}
-	);
 }
 
-$(window).scroll(function(){
+$(window).scroll(function() {
 	if ($(window).width() > 922) {
 	    if($(document).scrollTop() > 45)
 	    {
