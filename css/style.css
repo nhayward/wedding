@@ -87,16 +87,41 @@ a {
 	border-radius: 20px;
 }
 
-#introImage {
+#introImage, #introHeart {
 	display: block;
 	width: 100%;
-	max-width: 550px;
 	margin: 20px auto;
+}
+
+#introImage {
+	max-width: 550px;
+}
+
+#introHeart {
+	max-width: 100px;
 }
 
 #intro {
 	text-align: center;
 	line-height: 235%;
+}
+
+#gallery .content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+#gallery .content a {
+	flex-basis: 45%;
+	height: 100%;
+	padding: 10px;
+	text-align: center;
+}
+
+#gallery .content img {
+	width: auto;
+	max-height: 250px;
 }
 
 #venue {
@@ -134,17 +159,29 @@ a {
 	padding: 200px 0 !important;
 }
 
-#party > div {
+#party .content {
 	flex-basis: 425px;
 	flex-grow: 1;
 	margin: 50px 20px;
 	border-radius: 20px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
-#party > div img {
-	float: left;
-	max-height: 399px;
+#party .content .bobble {
+	flex-grow: 1;
 	margin-right: 20px;
+	text-align: center;
+}
+
+#party .content .bobble img {
+	max-height: 399px;
+	max-width: 250px;
+}
+
+#party .content .partyText {
+	flex-basis: 45%;
+	flex-grow: 1;
 }
 
 #amenities {

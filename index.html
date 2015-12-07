@@ -8,9 +8,13 @@
 	<title>Nick and Carly's Wedding</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" href="css/animate.css" />
+	<link rel="stylesheet" href="js/fancyBox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="js/fancyBox/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 	<script src="js/wow/dist/wow.min.js"></script>
+	<script type="text/javascript" src="js/fancyBox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+	<script type="text/javascript" src="js/fancyBox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
 	<script>
 		new WOW().init();
 	</script>
@@ -18,12 +22,14 @@
 <body>
 	<div id="top">
 		<div id="nav">
-			<a class="nav-item" href="#intro">Intro</a>
+			<a class="nav-item" href="#gallery">Gallery</a>
 			<a class="nav-item" href="#venue">The Venue</a>
 			<a class="nav-item" href="#party">The Wedding Party</a>
-			<div id="logo">
-				<img src="img/wedding_logo_gold.png" />
-			</div>
+			<a href="#intro">
+				<div id="logo">
+					<img src="img/wedding_logo_gold.png" />
+				</div>
+			</a>
 			<a class="nav-item" href="#amenities">Local Amenities</a>
 			<a class="nav-item" href="#registry">Registry</a>
 			<a class="nav-item" href="#rsvp">RSVP</a>
@@ -37,9 +43,13 @@
 				<p><h1>YOU'RE INVITED!<br />
 				To join us on September 24th, 2016<br />
 				In Kennebunk, Maine</h1></p>
+				<img id="introHeart" src="img/scrollwork_heart_navy.png" />
 				<p><h2>Look below for all the information you will need.<br />
 				Please enter your code at the bottom of the page to receive your invitation and to RSVP.</h2></p>
 			</div>
+		</div>
+		<div id="gallery">
+			<div class="content"></div>
 		</div>
 		<div id="venue">
 			<div class="content">
@@ -56,91 +66,123 @@
 		</div>
 		<div id="party">
 			<div class="content wow fadeInLeft">
-				<img src="img/bobbles/SaraBobble.png" />
-				<p><h2>Sara Dennison</h2></p>
-				<p><b>Co-Maid of Honor</b><br />
-				<b>Relationship:</b> Best friend<br />
-				<b>Friends since:</b> 2007<br />
-				<b>Most annoying habit:</b> constantly dances</p>
-				<p>Sara and I met freshman year of college, we always say that we became best friends on her birthday (when we stuffed ourselves with pizza and smartfood popcorn). As we learned in Dijon, we can easily drink tea and chat for an entire week and not run out of things to say. She is always ready to listen without judgment or just sit and watch TV together. </p>
-				<p><i><b>Note from Nick:</b> You shouldn’t be able to curl your foot into a fist. It’s just wrong.</i></p>
+				<div class="bobble">
+					<img src="img/bobbles/SaraBobble.png" />
+				</div>
+				<div class="partyText">
+					<p><h2>Sara Dennison</h2></p>
+					<p><b>Co-Maid of Honor</b><br />
+					<b>Relationship:</b> Best friend<br />
+					<b>Friends since:</b> 2007<br />
+					<b>Most annoying habit:</b> constantly dances</p>
+					<p>Sara and I met freshman year of college, we always say that we became best friends on her birthday (when we stuffed ourselves with pizza and smartfood popcorn). As we learned in Dijon, we can easily drink tea and chat for an entire week and not run out of things to say. She is always ready to listen without judgment or just sit and watch TV together. </p>
+					<p><i><b>Note from Nick:</b> You shouldn’t be able to curl your foot into a fist. It’s just wrong.</i></p>
+				</div>
 			</div>
 			<div class="content wow fadeInRight">
-				<img src="img/bobbles/AllanBobble.png" />
-				<p><h2>Allan Grondin</h2></p>
-				<p><b>Best Man</b><br />
-				<b>Relationship:</b> Best friend<br />
-				<b>Friends since:</b> 2005<br />
-				<b>Favorite everything:</b> Top Gun</p>
-				<p>Allan and I met sophomore year of high school when he borrowed a pen from me every day in Driver’s Ed. The next semester I saw him at lunch and I got my pen back. We decided that was enough foreplay and we started hanging out. Allan is the kind of guy who will always have your back without you even needing to ask. He’s also the kind of guy who always has sharp and/or dangerous objects within arm's reach, so keep him on your side.</p>
-				<p><i><b>Note from Carly:</b> Their bromance makes me jealous.</i>
-				</p>
+				<div class="bobble">
+					<img src="img/bobbles/AllanBobble.png" />
+				</div>
+				<div class="partyText">
+					<p><h2>Allan Grondin</h2></p>
+					<p><b>Best Man</b><br />
+					<b>Relationship:</b> Best friend<br />
+					<b>Friends since:</b> 2005<br />
+					<b>Favorite everything:</b> Top Gun</p>
+					<p>Allan and I met sophomore year of high school when he borrowed a pen from me every day in Driver’s Ed. The next semester I saw him at lunch and I got my pen back. We decided that was enough foreplay and we started hanging out. Allan is the kind of guy who will always have your back without you even needing to ask. He’s also the kind of guy who always has sharp and/or dangerous objects within arm's reach, so keep him on your side.</p>
+					<p><i><b>Note from Carly:</b> Their bromance makes me jealous.</i>
+					</p>
+				</div>
 			</div>
 			<div class="content wow fadeInLeft">
-				<img src="img/bobbles/JessBobble.png" />
-				<p><h2>Jessica Harris</h2></p>
-				<p><b>Co-Maid of Honor</b><br />
-				<b>Relationship:</b> Best friend<br />
-				<b>Friends since:</b> 2007<br />
-				<b>Most adorable feature:</b> Perfectly curly hair that I can’t help but sproing</p>
-				<p>Jess and I met freshman year of college and bonded quickly while apple picking and later drinking mocktails (because we were that cool). Even though she might love my mom more than she loves me, Jess and I can always come up with fun activities (possibly involving dressing my nieces as hobobabies when they couldn’t object  . . .  sorry). Clearly, she is creative with a dash of wisdom thrown in.</p>
-				<p><i><b>Note from Nick:</b> Cause it’s my show you can’t tell me what to do. When life hands me lemons, I make beef stew.</i>
-				</p>
+				<div class="bobble">
+					<img src="img/bobbles/JessBobble.png" />
+				</div>
+				<div class="partyText">
+					<p><h2>Jessica Harris</h2></p>
+					<p><b>Co-Maid of Honor</b><br />
+					<b>Relationship:</b> Best friend<br />
+					<b>Friends since:</b> 2007<br />
+					<b>Most adorable feature:</b> Perfectly curly hair that I can’t help but sproing</p>
+					<p>Jess and I met freshman year of college and bonded quickly while apple picking and later drinking mocktails (because we were that cool). Even though she might love my mom more than she loves me, Jess and I can always come up with fun activities (possibly involving dressing my nieces as hobobabies when they couldn’t object  . . .  sorry). Clearly, she is creative with a dash of wisdom thrown in.</p>
+					<p><i><b>Note from Nick:</b> Cause it’s my show you can’t tell me what to do. When life hands me lemons, I make beef stew.</i>
+					</p>
+				</div>
 			</div>
 			<div class="content wow fadeInRight">
-				<img src="img/bobbles/RyanBobble.png" />
-				<p><h2>Ryan Mack</h2></p>
-				<p><b>Groomsman</b><br />
-				<b>Relationship:</b> Brother<br />
-				<b>Brothers since:</b> 2004<br />
-				<b>Most recent sale:</b> 5 seconds ago</p>
-				<p>Ryan and I have always been pretty much exact opposites. Two different sides of the spectrum when it comes to athleticism and overall confidence. We still managed to get along for the most part and bond over video games. It was in college, when I was 21 and he needed someone to buy him alcohol, that we found an even stronger bond. Ryan is technically my step-brother, but screw that. He’s my brother. I wouldn’t have it any other way.</p>
-				<p><i><b>Note from Carly:</b> I also bought him alcohol.</i>
-				</p>
+				<div class="bobble">
+					<img src="img/bobbles/RyanBobble.png" />
+				</div>
+				<div class="partyText">
+					<p><h2>Ryan Mack</h2></p>
+					<p><b>Groomsman</b><br />
+					<b>Relationship:</b> Brother<br />
+					<b>Brothers since:</b> 2004<br />
+					<b>Most recent sale:</b> 5 seconds ago</p>
+					<p>Ryan and I have always been pretty much exact opposites. Two different sides of the spectrum when it comes to athleticism and overall confidence. We still managed to get along for the most part and bond over video games. It was in college, when I was 21 and he needed someone to buy him alcohol, that we found an even stronger bond. Ryan is technically my step-brother, but screw that. He’s my brother. I wouldn’t have it any other way.</p>
+					<p><i><b>Note from Carly:</b> I also bought him alcohol.</i>
+					</p>
+				</div>
 			</div>
 			<div class="content wow fadeInLeft">
-				<img src="img/bobbles/AliBobble.png" />
-				<p><h2>Alanna Bornstein</h2></p>
-				<p><b>Bridesmaid</b><br />
-				<b>Relationship:</b> Sister<br />
-				<b>Sisters since:</b> 1988<br />
-				<b>Favorite word:</b> hhhuuuhuuuuggghhh <i>(sigh)</i></p>
-				<p>Alanna and I met when  . . .  I was born, and she couldn’t have been happier to get a little sister (cough). We traveled all over, just the two of us, and she always took care of me (albeit by leaving me to watch the bags while she ran off to explore the airport). Once she went off to college our friendship really grew (clearly there is no correlation). The way I speak may change after we get off the phone, but she is always my go-to-person on everything.</p>
-				<p><i><b>Note from Nick:</b> I’m better at Words with Friends.</i>
-				</p>
+				<div class="bobble">
+					<img src="img/bobbles/AliBobble.png" />
+				</div>
+				<div class="partyText">
+					<p><h2>Alanna Bornstein</h2></p>
+					<p><b>Bridesmaid</b><br />
+					<b>Relationship:</b> Sister<br />
+					<b>Sisters since:</b> 1988<br />
+					<b>Favorite word:</b> hhhuuuhuuuuggghhh <i>(sigh)</i></p>
+					<p>Alanna and I met when  . . .  I was born, and she couldn’t have been happier to get a little sister (cough). We traveled all over, just the two of us, and she always took care of me (albeit by leaving me to watch the bags while she ran off to explore the airport). Once she went off to college our friendship really grew (clearly there is no correlation). The way I speak may change after we get off the phone, but she is always my go-to-person on everything.</p>
+					<p><i><b>Note from Nick:</b> I’m better at Words with Friends.</i>
+					</p>
+				</div>
 			</div>
 			<div class="content wow fadeInRight">
-				<img src="img/bobbles/JeffBobble.png" />
-				<p><h2>Jeffrey Hodgdon</h2></p>
-				<p><b>Groomsman</b><br />
-				<b>Relationship:</b> Friend<br />
-				<b>Friends since:</b> 2007<br />
-				<b>Night job:</b> Dave Chappelle’s understudy</p>
-				<p>Jeff and I went to high school together, but we didn’t really meet until college. In high school he was the guy who sat two desks in front of me wearing a distracting t-shirt where letters turned into musical instruments. I missed more questions from the teacher in that class than any class I’ve ever been in. Jeff is the kind of person you can sit down with and just talk about life. He’s a loyal friend. No matter where you go, he’ll get there, even if it’s just for a quick visit.</p>
-				<p><i><b>Note from Carly:</b> His laugh scares me.</i>
-				</p>
+				<div class="bobble">
+					<img src="img/bobbles/JeffBobble.png" />
+				</div>
+				<div class="partyText">
+					<p><h2>Jeffrey Hodgdon</h2></p>
+					<p><b>Groomsman</b><br />
+					<b>Relationship:</b> Friend<br />
+					<b>Friends since:</b> 2007<br />
+					<b>Night job:</b> Dave Chappelle’s understudy</p>
+					<p>Jeff and I went to high school together, but we didn’t really meet until college. In high school he was the guy who sat two desks in front of me wearing a distracting t-shirt where letters turned into musical instruments. I missed more questions from the teacher in that class than any class I’ve ever been in. Jeff is the kind of person you can sit down with and just talk about life. He’s a loyal friend. No matter where you go, he’ll get there, even if it’s just for a quick visit.</p>
+					<p><i><b>Note from Carly:</b> His laugh scares me.</i>
+					</p>
+				</div>
 			</div>
 			<div class="content wow fadeInLeft">
-				<img src="img/bobbles/CoriBobble.png" />
-				<p><h2>Cori McGrath</h2></p>
-				<p><b>Bridesmaid</b><br />
-				<b>Relationship:</b> Sister<br />
-				<b>Sisters since:</b> 1988<br />
-				<b>Best talent:</b> She can outdrink us all</p>
-				<p>Cori and I met when she held me in the hospital after I was born (I assume, I have no recollection of this). And then I was able to hold her daughters in the hospital after they were born. Even though she was stuck babysitting us all the time, she sought her revenge by having me babysit Molly and Shaye. I lucked out having a big sister like her, because Cori and her family are the best people to stay up late with, drinking wine, playing games, and being silly (and possibly deep).</p>
-				<p><i><b>Note from Nick:</b> How can real estate exist without fake estate? Think about it.</i>
-				</p>
+				<div class="bobble">
+					<img src="img/bobbles/CoriBobble.png" />
+				</div>
+				<div class="partyText">
+					<p><h2>Cori McGrath</h2></p>
+					<p><b>Bridesmaid</b><br />
+					<b>Relationship:</b> Sister<br />
+					<b>Sisters since:</b> 1988<br />
+					<b>Best talent:</b> She can outdrink us all</p>
+					<p>Cori and I met when she held me in the hospital after I was born (I assume, I have no recollection of this). And then I was able to hold her daughters in the hospital after they were born. Even though she was stuck babysitting us all the time, she sought her revenge by having me babysit Molly and Shaye. I lucked out having a big sister like her, because Cori and her family are the best people to stay up late with, drinking wine, playing games, and being silly (and possibly deep).</p>
+					<p><i><b>Note from Nick:</b> How can real estate exist without fake estate? Think about it.</i>
+					</p>
+				</div>
 			</div>
 			<div class="content wow fadeInRight">
-				<img src="img/bobbles/DustinBobble.png" />
-				<p><h2>Dustin Schoenbrun</h2></p>
-				<p><b>Groomsman</b><br />
-				<b>Relationship:</b> Friend<br />
-				<b>Friends since:</b> 2008<br />
-				<b>Fun fact:</b> Next in line to replace Geddy Lee on bass guitar</p>
-				<p>Dustin and I met in college when we encountered each other one day in a dorm that neither of us lived in. We were both made up of a similar combination of nerdiness and geekiness, so we hit it off pretty well. Dustin is a rare mix of midwestern values, southern charm, and a northeastern love of the Bruins. He cares about those close to him, and I mean he really cares. If you like bonding with strangers at the table next to yours, just follow him out anywhere.</p>
-				<p><i><b>Note from Carly:</b> I’m so happy he cut his hair.</i>
-				</p>
+				<div class="bobble">
+					<img src="img/bobbles/DustinBobble.png" />
+				</div>
+				<div class="partyText">
+					<p><h2>Dustin Schoenbrun</h2></p>
+					<p><b>Groomsman</b><br />
+					<b>Relationship:</b> Friend<br />
+					<b>Friends since:</b> 2008<br />
+					<b>Fun fact:</b> Next in line to replace Geddy Lee on bass guitar</p>
+					<p>Dustin and I met in college when we encountered each other one day in a dorm that neither of us lived in. We were both made up of a similar combination of nerdiness and geekiness, so we hit it off pretty well. Dustin is a rare mix of midwestern values, southern charm, and a northeastern love of the Bruins. He cares about those close to him, and I mean he really cares. If you like bonding with strangers at the table next to yours, just follow him out anywhere.</p>
+					<p><i><b>Note from Carly:</b> I’m so happy he cut his hair.</i>
+					</p>
+				</div>
 			</div>
 		</div>
 		<div id="amenities">

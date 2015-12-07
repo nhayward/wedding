@@ -11,7 +11,7 @@ $(document).ready(function() {
 		if (target.length) {
 			event.preventDefault();
 			$('html, body').animate({
-				scrollTop: $(target).offset().top - 70
+				scrollTop: $(target).offset().top - 68
 			}, 1000);
 		}
 	});
@@ -30,6 +30,32 @@ $(document).ready(function() {
 		}
 		$('#logo img').css('background-color', '#000033');
 	}
+
+	var dir = "img/gallery/";
+	var ext = ".jpg";
+	$.ajax({
+	    url: dir,
+	    success: function (data) {
+	        $(data).find("a:contains(" + ext + ")").each(function() {
+	            var filename = this.href.replace(window.location, "").replace("http://", "");
+	            $("#gallery .content").append(
+	            	"<a class='fancybox' data-fancybox-group='thumb' href='" + dir + filename + "'>" +
+	            		"<img src='" + dir + filename + "' />" +
+	            	"</a>"
+	            );
+	        });
+	    }
+	});
+
+	$(".fancybox").fancybox({
+		nextClick : true,
+		helpers : {
+			thumbs : {
+				width  : 75,
+				height : 75
+			}
+		}
+	});
 
 	$("#registry img")
 		.mouseover(function() {
