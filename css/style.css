@@ -52,7 +52,7 @@ a {
 }
 
 @media screen and (max-width: 922px) {
-	#logo img {
+	#logo {
 		display: none !important;
 	}
 }
@@ -98,12 +98,16 @@ a {
 }
 
 #introHeart {
-	max-width: 100px;
+	max-width: 150px;
 }
 
 #intro {
 	text-align: center;
 	line-height: 235%;
+}
+
+#intro .content {
+	padding: 10px 30px;
 }
 
 #gallery .content {
@@ -170,7 +174,7 @@ a {
 
 #party .content .bobble {
 	flex-grow: 1;
-	margin-right: 20px;
+	/*margin-right: 20px;*/
 	text-align: center;
 }
 

@@ -306,7 +306,7 @@ $(window).scroll(function() {
 	        		$('#logo img').data('size','small');
 		            $('#logo img').css('background-color', '#000033');
 		            $('#logo img').height(59);
-		            $('#logo').width(163);
+					$('#nav a[href=#intro]').width(163);
 	        	} else {
 		            $('#logo img').data('size','small');
 		            $('#logo img').css('background-color', '#000033');
@@ -323,8 +323,8 @@ $(window).scroll(function() {
 	        	if (safari) {
 	        		$('#logo img').data('size','big');
 		            $('#logo img').css('background-color', 'initial');
-		            $('#logo').width(545);
 		            $('#logo img').height(200);
+					$('#nav a[href=#intro]').width(545);
 	        	} else {
 		            $('#logo img').data('size','big');
 		            $('#logo img').css('background-color', 'initial');
