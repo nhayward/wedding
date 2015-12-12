@@ -110,22 +110,14 @@ a {
 	padding: 10px 30px;
 }
 
-#gallery .content {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
+#carousel {
+	margin-top: 200px;
 }
 
-#gallery .content a {
-	flex-basis: 45%;
-	height: 100%;
-	padding: 10px;
-	text-align: center;
-}
-
-#gallery .content img {
-	width: auto;
-	max-height: 250px;
+#carousel img {
+	display: block;
+	margin: auto;
+	max-height: 500px;
 }
 
 #venue {

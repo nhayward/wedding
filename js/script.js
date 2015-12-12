@@ -38,24 +38,36 @@ $(document).ready(function() {
 	    success: function (data) {
 	        $(data).find("a:contains(" + ext + ")").each(function() {
 	            var filename = this.href.replace(window.location, "").replace("http://", "");
-	            $("#gallery .content").append(
-	            	"<a class='fancybox' data-fancybox-group='thumb' href='" + dir + filename + "'>" +
+	            $("#carousel").append(
+	            	"<div>" +
 	            		"<img src='" + dir + filename + "' />" +
-	            	"</a>"
+	            	"</div>"
 	            );
 	        });
+			$('#carousel').slick({
+				dots: false,
+				infinite: true,
+				speed: 1000,
+				slidesToShow: 1,
+				adaptiveHeight: true,
+				fade: true,
+				cssEase: 'linear',
+				autoplay: true,
+				autoplaySpeed: 3000
+			});
 	    }
 	});
 
-	$(".fancybox").fancybox({
-		nextClick : true,
-		helpers : {
-			thumbs : {
-				width  : 75,
-				height : 75
-			}
-		}
-	});
+
+	// $(".fancybox").fancybox({
+	// 	nextClick : true,
+	// 	helpers : {
+	// 		thumbs : {
+	// 			width  : 75,
+	// 			height : 75
+	// 		}
+	// 	}
+	// });
 
 	$("#registry img")
 		.mouseover(function() {
