@@ -58,17 +58,6 @@ $(document).ready(function() {
 	    }
 	});
 
-
-	// $(".fancybox").fancybox({
-	// 	nextClick : true,
-	// 	helpers : {
-	// 		thumbs : {
-	// 			width  : 75,
-	// 			height : 75
-	// 		}
-	// 	}
-	// });
-
 	$("#registry img")
 		.mouseover(function() {
 			var src = $(this).attr("src").replace("_gray.png", ".png");
@@ -318,7 +307,7 @@ $(window).scroll(function() {
 	        		$('#logo img').data('size','small');
 		            $('#logo img').css('background-color', '#000033');
 		            $('#logo img').height(59);
-					$('#nav a[href=#intro]').width(163);
+		            $('#logo').width(163);
 	        	} else {
 		            $('#logo img').data('size','small');
 		            $('#logo img').css('background-color', '#000033');
@@ -327,16 +316,14 @@ $(window).scroll(function() {
 		            },500);
 	        	}
 	        }
-	    }
-	    else
-	    {
+	    } else {
 	        if($('#logo img').data('size') == 'small')
 	        {
 	        	if (safari) {
 	        		$('#logo img').data('size','big');
 		            $('#logo img').css('background-color', 'initial');
+		            $('#logo').width(545);
 		            $('#logo img').height(200);
-					$('#nav a[href=#intro]').width(545);
 	        	} else {
 		            $('#logo img').data('size','big');
 		            $('#logo img').css('background-color', 'initial');
