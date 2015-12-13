@@ -138,7 +138,15 @@ a {
 #carousel img {
 	display: block;
 	margin: auto;
-	max-height: 500px;
+	width: 100%;
+}
+
+#carousel .landscape {
+	max-width: 750px;
+}
+
+#carousel .portrait {
+	max-width: 333px;
 }
 
 #venue {

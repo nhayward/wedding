@@ -39,9 +39,13 @@ $(document).ready(function() {
 	    success: function (data) {
 	        $(data).find("a:contains(" + ext + ")").each(function() {
 	            var filename = this.href.replace(window.location, "").replace("http://", "");
+	            var imgClass = "landscape";
+	            if (filename.indexOf("068") > -1 || filename.indexOf("171") > -1) {
+	            	imgClass = "portrait";
+	            }
 	            $("#carousel").append(
 	            	"<div>" +
-	            		"<img src='" + dir + filename + "' />" +
+	            		"<img class='" + imgClass + "' src='" + dir + filename + "' />" +
 	            	"</div>"
 	            );
 	        });
