@@ -170,7 +170,7 @@ function checkCodeAndGetInvite() {
 			}
 			var invitedText = '<text y="70" fill="none" stroke="#000033" stroke-width="1" font-size="50">';
 			if (ieOrEdge) {
-				invitedText = '<text y="70" stroke="#000033" stroke-width="1" font-size="50">';
+				invitedText = '<text y="70" fill="#000033" font-size="50">';
 			}
 			var invite = 
 					'<div id="invite">' +
@@ -269,7 +269,7 @@ function postContactToGoogle() {
 		}
 		var thankText = '<text y="55" fill="none" stroke="#000033" stroke-width="1" font-size="50">';
 		if (ieOrEdge) {
-			thankText = '<text y="55" stroke="#000033" stroke-width="1" font-size="50">';
+			thankText = '<text y="55" fill="#000033" font-size="50">';
 		}
 		$('#rsvp .content #rsvpForm').html(
 			'<svg width="253" height="75">' +
