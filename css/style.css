@@ -72,19 +72,39 @@ a {
 }
 
 #wrapper > div {
-	padding: 200px 15%;
+	padding: 1px 15% 200px;
+	text-align: center;
 }
 
 @media screen and (max-width: 922px) {
 	#wrapper > div {
-		padding: 100px 5%;
+		padding: 1px 5% 100px;
 	}
+}
+
+.header {
+	background-color: rgba(255, 255, 255, 0.4);
+	display: inline-block;
+	font-family: Papyrus, fantasy;
+	font-weight: bold;
+	font-size: 55px;
+	text-align: center;
+	margin: 25px 0 20px;
+	padding: 0 10px;
+}
+
+.header p {
+	margin: 15px 0 0;
+}
+
+.content, .header {
+	border-radius: 20px;
 }
 
 .content {
 	background-color: rgba(255, 255, 255, 0.8);
 	padding: 10px 20px;
-	border-radius: 20px;
+	text-align: left;
 }
 
 #introImage, #introHeart {
@@ -102,12 +122,13 @@ a {
 }
 
 #intro {
-	text-align: center;
 	line-height: 235%;
+	padding-top: 200px !important;
 }
 
 #intro .content {
 	padding: 10px 30px;
+	text-align: center;
 }
 
 #carousel {
@@ -125,6 +146,7 @@ a {
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
+	text-align: center;
 }
 
 #venue .content {
@@ -149,13 +171,17 @@ a {
 }
 
 #party {
+	padding: 1px 0 200px !important;
+}
+
+#party #partyBoxes {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	padding: 200px 0 !important;
+	padding: 0px !important;
 }
 
-#party .content {
+#party #partyBoxes .content {
 	flex-basis: 425px;
 	flex-grow: 1;
 	margin: 50px 20px;
@@ -164,18 +190,18 @@ a {
 	flex-wrap: wrap;
 }
 
-#party .content .bobble {
+#party #partyBoxes .content .bobble {
 	flex-grow: 1;
 	/*margin-right: 20px;*/
 	text-align: center;
 }
 
-#party .content .bobble img {
+#party #partyBoxes .content .bobble img {
 	max-height: 399px;
 	max-width: 250px;
 }
 
-#party .content .partyText {
+#party #partyBoxes .content .partyText {
 	flex-basis: 45%;
 	flex-grow: 1;
 }
@@ -188,27 +214,41 @@ a {
 	line-height: 150%;
 }
 
-#amenities > div img {
+#amenities .header p {
+	margin: 40px 0 10px;
+}
+
+#amenities .content img {
 	float: right;
 	margin-right: 20px;
 }
 
-#registry > div {
+#amenities .content #mapContainer {
+	float: right;
+	width: 600px;
+	height: 450px;
+}
+
+#amenities .content .scrolloff {
+    pointer-events: none;
+}
+
+#registry .content {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-around;
 }
 
-#registry > div a {
+#registry .content a {
 	margin: 20px;
 }
 
-#registry > div img {
+#registry .content img {
 	flex-basis: 400px;
 }
 
-#registry > div img:first-child {
+#registry .content img:first-child {
 	flex-basis: 100%;
 }
 

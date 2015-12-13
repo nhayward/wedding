@@ -18,13 +18,14 @@ $(document).ready(function() {
 
 	if ($(document).scrollTop() <= 45) {
 		$('#logo img').data('size','big');
-		$('#logo img').height(200);
+		$('#logo img').css('max-height', 200);
 		if (safari) {
 			$('#logo').width(545);
+            $('#logo img').width('92%');
 		}
 	} else {
 		$('#logo img').data('size','small');
-		$('#logo img').height(59);
+		$('#logo img').css('max-height', 59);
 		if (safari) {
 			$('#logo').width(163);
 		}
@@ -71,6 +72,15 @@ $(document).ready(function() {
 	clickOnEnter();
 	
 	$('#submitCode').prop("disabled", false);
+
+	$('#amenities .content iframe').addClass('scrolloff');
+    $('#amenities .content #mapContainer').on('click', function () {
+        $('#amenities .content iframe').removeClass('scrolloff');
+    });
+
+    $("#amenities .content iframe").mouseleave(function () {
+        $('#amenities .content iframe').addClass('scrolloff');
+    });
 
 });
 
@@ -306,13 +316,14 @@ $(window).scroll(function() {
 	        	if (safari) {
 	        		$('#logo img').data('size','small');
 		            $('#logo img').css('background-color', '#000033');
-		            $('#logo img').height(59);
+					$('#logo img').css('max-height', 59);
 		            $('#logo').width(163);
+		            $('#logo img').width('initial');
 	        	} else {
 		            $('#logo img').data('size','small');
 		            $('#logo img').css('background-color', '#000033');
 		            $('#logo img').stop().animate({
-		                height:'59px'
+		                'max-height':'59px'
 		            },500);
 	        	}
 	        }
@@ -323,12 +334,13 @@ $(window).scroll(function() {
 	        		$('#logo img').data('size','big');
 		            $('#logo img').css('background-color', 'initial');
 		            $('#logo').width(545);
-		            $('#logo img').height(200);
+		            $('#logo img').width('92%');
+					$('#logo img').css('max-height', 200);
 	        	} else {
 		            $('#logo img').data('size','big');
 		            $('#logo img').css('background-color', 'initial');
 		            $('#logo img').stop().animate({
-		                height:'200px'
+		                'max-height':'200px'
 		            },500);
 	        	}
 	        }  
