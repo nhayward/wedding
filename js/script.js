@@ -120,7 +120,7 @@ function whichForm(numParty) {
 						'<option value="" disabled selected>Select</option>' +
 						'<option value="would like">would like</option>' +
 						'<option value="will not need">will not need</option>' +
-					'</select> a seat on the shuttle from the hotel, if possible.<br />' +
+					'</select> a seat on the shuttle from the hotel.<br />' +
 					'Sincerely,<br />' + name + '<br />' +
 					'<button id="submitForm" type="button" onclick="postContactToGoogle()">RSVP</button>' +
 				'</div>';
@@ -145,7 +145,7 @@ function whichForm(numParty) {
 						'<option value="" disabled selected>Select</option>' +
 						'<option value="would like">would like</option>' +
 						'<option value="will not need">will not need</option>' +
-					'</select> a seat on the shuttle from the King\'s Port Inn, if possible.<br />' +
+					'</select> a seat on the shuttle from the King\'s Port Inn.<br />' +
 					'Sincerely,<br />' + name + '<br />' +
 					'<button id="submitForm" type="button" onclick="postContactToGoogle()">RSVP</button>' +
 				'</div>';
@@ -218,8 +218,9 @@ function checkCodeAndGetInvite() {
 		        $('#codeEntry p').remove();
 				$('#rsvp .content').html(invite +
 					'<div id="rsvpForm">' +
-						'<p style="text-align: center;">You have already RSVP\'d. Thanks! See your response below:</p>' +
+						'<p style="text-align: center;">You have already sent us your RSVP card, thank you! See below to review your response.</p>' +
 						'<p>' + response + '</p>' +
+						'<p>Contact nhayward2011@gmail.com if you need to make a change.</p>' +
 					'</div>'
 				);
 				$('#submitCode').prop("disabled", false);
@@ -258,7 +259,7 @@ function postContactToGoogle() {
 			}
 			if ($('[name=shuttle]').val()) {
 				response += "I/We " + $('[name=shuttle]').val() +
-				" a seat on the shuttle from the King\'s Port Inn, if possible.";
+				" a seat on the shuttle from the King\'s Port Inn.";
 			}
 		} else {
 			if ($('[name=introAdjective]').val()) {
@@ -278,7 +279,7 @@ function postContactToGoogle() {
 			}
 			if ($('[name=shuttle]').val()) {
 				response += "I " + $('[name=shuttle]').val() +
-				" a seat on the shuttle from the King\'s Port Inn, if possible.";
+				" a seat on the shuttle from the King\'s Port Inn.";
 			}
 		}
 		var thankText = '<text y="55" fill="none" stroke="#000033" stroke-width="1" font-size="50">';
@@ -290,7 +291,10 @@ function postContactToGoogle() {
 				thankText +
 					'Thank You!' +
 				'</text>' +
-			'</svg>'
+			'</svg>' +
+			'<p>Your response:</p>' +
+			'<p>' + response + '</p>' +
+			'<p>You can review your response at any time by coming back and inputting your code. Contact nhayward2011@gmail.com if you need to make a change.</p>'
 		);
 		$.post(
 			"https://script.google.com/macros/s/AKfycbwfBOa4cvvhXfb7Ug3s-A9W2O9Yt13tPdMFzw-LMIAVVjsAqDY/exec",

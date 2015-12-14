@@ -394,3 +394,11 @@ text {
 	margin: 20px auto;
 	padding: 10px;
 }
+
+#rsvp .content #rsvpForm input[type=number] {
+	width: 20px;
+}
+
+#rsvp .content #rsvpForm p:last-child {
+	text-align: center;
+}
