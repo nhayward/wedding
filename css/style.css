@@ -8,10 +8,6 @@ body {
 	min-width: 658px;
 }
 
-a {
-	/*color: blue;*/
-}
-
 #top {
 	text-align: center;
 }
@@ -34,12 +30,11 @@ a {
 }
 
 .nav-item {
-	color: #D7D6D4;
 	background-color: #000033;
+	color: #D7D6D4;
 	flex-basis: 25%;
 	padding: 25px 10px;
 	text-decoration: none;
-	/*max-height: 20px;*/
 	height: 100%;
 }
 
@@ -83,26 +78,25 @@ a {
 }
 
 .header {
-	background-color: rgba(255, 255, 255, 0.4);
 	display: inline-block;
 	font-family: Papyrus, fantasy;
 	font-weight: bold;
 	font-size: 55px;
-	text-align: center;
-	margin: 25px 0 20px;
-	padding: 0 10px;
+	color: #D7D6D4;
 }
 
 .header p {
-	margin: 15px 0 0;
-}
-
-.content, .header {
-	border-radius: 20px;
+	text-shadow:
+		3px 3px 5px #000033,
+		-1px -1px 5px #000033,
+		1px -1px 5px #000033,
+		-1px 1px 5px #000033,
+		1px 1px 5px #000033;
 }
 
 .content {
 	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 20px;
 	padding: 10px 20px;
 	text-align: left;
 }
@@ -160,6 +154,7 @@ a {
 #venue .content {
 	display: flex;
 	flex-wrap: wrap;
+	align-items: center;
 }
 
 #venueInnerImg {
@@ -168,7 +163,7 @@ a {
 }
 
 #venueInnerImg img {
-	height: 100%;
+	/*height: 100%;*/
 	width: 100%;
 }
 
@@ -200,7 +195,6 @@ a {
 
 #party #partyBoxes .content .bobble {
 	flex-grow: 1;
-	/*margin-right: 20px;*/
 	text-align: center;
 }
 
@@ -219,22 +213,37 @@ a {
 	background-size: cover;
 	background-attachment: fixed;
 	background-position: center center;
+}
+
+#amenities .content {
 	line-height: 150%;
 }
 
-#amenities .header p {
-	margin: 40px 0 10px;
+#amenities .content h2 {
+	text-align: center;
 }
 
 #amenities .content img {
-	float: right;
+	float: left;
 	margin-right: 20px;
 }
 
-#amenities .content #mapContainer {
-	float: right;
-	width: 600px;
-	height: 450px;
+#amenities .content #amenitiesInfo {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#amenities .content #amenitiesInfo #info {
+	flex-basis: 30%;
+	flex-grow: 1;
+	margin-right: 10px;
+}
+
+#amenities .content #amenitiesInfo #mapContainer {
+	width: 500px;
+	height: 375px;
 }
 
 #amenities .content .scrolloff {
