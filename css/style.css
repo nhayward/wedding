@@ -406,3 +406,11 @@ text {
 #rsvp .content #rsvpForm p:last-child {
 	text-align: center;
 }
+
+#footer {
+	background-color: #000033;
+	color: #D7D6D4;
+	font-size: 12px;
+	text-align: center;
+	padding: 1px;
+}
