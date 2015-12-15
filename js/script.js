@@ -25,7 +25,7 @@ $(document).ready(function() {
 		}
 	} else {
 		$('#logo img').data('size','small');
-		$('#logo img').css('max-height', 97);
+		$('#logo img').css('max-height', 78);
 		if (safari) {
 			$('#logo').width(163);
 		}
@@ -331,14 +331,14 @@ $(window).scroll(function() {
 	        	if (safari) {
 	        		$('#logo img').data('size','small');
 		            $('#logo img').css('background-color', '#000033');
-					$('#logo img').css('max-height', 97);
+					$('#logo img').css('max-height', 78);
 		            $('#logo').width(163);
 		            $('#logo img').width('initial');
 	        	} else {
 		            $('#logo img').data('size','small');
 		            $('#logo img').css('background-color', '#000033');
 		            $('#logo img').stop().animate({
-		                'max-height':'97px'
+		                'max-height':'78px'
 		            },500);
 	        	}
 	        }
