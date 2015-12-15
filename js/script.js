@@ -11,7 +11,7 @@ $(document).ready(function() {
 		if (target.length) {
 			event.preventDefault();
 			$('html, body').animate({
-				scrollTop: $(target).offset().top - 68
+				scrollTop: $(target).offset().top - 88
 			}, 1000);
 		}
 	});
@@ -27,40 +27,22 @@ $(document).ready(function() {
 		$('#logo img').data('size','small');
 		$('#logo img').css('max-height', 78);
 		if (safari) {
-			$('#logo').width(163);
+			$('#logo').width(200);
+            $('#logo img').width('92%');
 		}
 		$('#logo img').css('background-color', '#000033');
 	}
 
-	var dir = "img/gallery/";
-	var ext = ".jpg";
-	$.ajax({
-	    url: dir,
-	    success: function (data) {
-	        $(data).find("a:contains(" + ext + ")").each(function() {
-	            var filename = this.href.replace(window.location, "").replace("http://", "");
-	            var imgClass = "landscape";
-	            if (filename.indexOf("068") > -1 || filename.indexOf("171") > -1) {
-	            	imgClass = "portrait";
-	            }
-	            $("#carousel").append(
-	            	"<div>" +
-	            		"<img class='" + imgClass + "' src='" + dir + filename + "' />" +
-	            	"</div>"
-	            );
-	        });
-			$('#carousel').slick({
-				dots: false,
-				infinite: true,
-				speed: 1000,
-				slidesToShow: 1,
-				adaptiveHeight: true,
-				fade: true,
-				cssEase: 'linear',
-				autoplay: true,
-				autoplaySpeed: 3000
-			});
-	    }
+	$('#carousel').slick({
+		dots: false,
+		infinite: true,
+		speed: 1000,
+		slidesToShow: 1,
+		adaptiveHeight: true,
+		fade: true,
+		cssEase: 'linear',
+		autoplay: true,
+		autoplaySpeed: 3000
 	});
 
 	$("#registry img")
@@ -332,8 +314,8 @@ $(window).scroll(function() {
 	        		$('#logo img').data('size','small');
 		            $('#logo img').css('background-color', '#000033');
 					$('#logo img').css('max-height', 78);
-		            $('#logo').width(163);
-		            $('#logo img').width('initial');
+		            $('#logo').width(200);
+		            $('#logo img').width('85.5%');
 	        	} else {
 		            $('#logo img').data('size','small');
 		            $('#logo img').css('background-color', '#000033');
