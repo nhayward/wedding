@@ -25,7 +25,7 @@ $(document).ready(function() {
 		}
 	} else {
 		$('#logo img').data('size','small');
-		$('#logo img').css('max-height', 59);
+		$('#logo img').css('max-height', 97);
 		if (safari) {
 			$('#logo').width(163);
 		}
@@ -135,12 +135,12 @@ function whichForm(numParty) {
 				 		'<option value="" disabled selected>Select</option>' +
 				 		'<option value="attend">attend</option>' +
 						'<option value="miss">miss</option>' +
-					'</select> the celebration. There are ' +
-					'<input type="number" name="number" min="0" max="5" placeholder="#" required/> people in our party. ' +
+					'</select> the celebration. There is/are ' +
+					'<input type="number" name="number" min="0" max="5" placeholder="#" required/> attendee(s) in our party. ' +
 					'<input type="number" name="numberFood" min="0" max="5" placeholder="#"> of us can\'t eat ' +
 					'<input type="text" name="dietaryRestriction" placeholder="Dietary Restrictions" maxlength="500">.<br />' +
-					'We will only dance if we hear ' +
-					'<input type="text" name="songRequest" placeholder="Song/Artist" maxlength="500">. I/We ' +
+					'Dancing will only happen if ' +
+					'<input type="text" name="songRequest" placeholder="Song/Artist" maxlength="500"> is heard. I/We ' +
 					'<select name="shuttle">' +
 						'<option value="" disabled selected>Select</option>' +
 						'<option value="would like">would like</option>' +
@@ -209,7 +209,7 @@ function checkCodeAndGetInvite() {
 						'Lyman, Maine 04002</p>' +
 						'<p>Dinner and dancing to follow.<br />' +
 						'Semi-Formal (It’s outside, so heels might be a problem!)</p>' +
-						'<p>RSVP by [insert date] or we will use at least 4 forms of communication to hassle you.</p><br />' +
+						'<p>RSVP by September 1, 2016 or we will use at least 4 forms of communication to hassle you.</p><br />' +
 					'</div>';
 			if (valid && !rsvpd) {
 				$('#codeEntry p').remove();
@@ -218,9 +218,12 @@ function checkCodeAndGetInvite() {
 		        $('#codeEntry p').remove();
 				$('#rsvp .content').html(invite +
 					'<div id="rsvpForm">' +
-						'<p style="text-align: center;">You have already sent us your RSVP card, thank you! See below to review your response.</p>' +
+						'<p style="text-align: center;"><b>You have already sent us your RSVP card, thank you! See below to review your response:</b></p>' +
+						'<p>Dear Nick and Carly,</p>' +
 						'<p>' + response + '</p>' +
-						'<p>Contact nhayward2011@gmail.com if you need to make a change.</p>' +
+						'<p>Sincerely,<br />' +
+						name + '</p>' +
+						'<p><i>Contact nhayward2011@gmail.com if you need to make a change.</i></p>' +
 					'</div>'
 				);
 				$('#submitCode').prop("disabled", false);
@@ -249,13 +252,13 @@ function postContactToGoogle() {
 				response += $('[name=names]').val() + " is/are going to ";
 			}
 			response += $('[name=attendance]').val() + " the celebration. " +
-				"There are " + $('[name=number]').val() + " people in our party. ";
+				"There is/are " + $('[name=number]').val() + " attendee(s) in our party. ";
 			if ($('[name=numberFood]').val() && $('[name=dietaryRestriction]').val()) {
 				response += $('[name=numberFood]').val() + " of us can\'t eat " +
 					$('[name=dietaryRestriction]').val() + ".\n";
 			}
 			if ($('[name=songRequest]').val()) {
-				response += "We will only dance if we hear " + $('[name=songRequest]').val() + ". ";
+				response += "Dancing will only happen if " + $('[name=songRequest]').val() + " is heard. ";
 			}
 			if ($('[name=shuttle]').val()) {
 				response += "I/We " + $('[name=shuttle]').val() +
@@ -292,9 +295,13 @@ function postContactToGoogle() {
 					'Thank You!' +
 				'</text>' +
 			'</svg>' +
-			'<p>Your response:</p>' +
+			'<p><b>Your response:</b></p>' +
+			'<p>Dear Nick and Carly,</p>' +
 			'<p>' + response + '</p>' +
-			'<p>You can review your response at any time by coming back and inputting your code. Contact nhayward2011@gmail.com if you need to make a change.</p>'
+			'<p>Sincerely,<br />' +
+			name + '</p>' +
+			'<p><b>You can review your response at any time by coming back and inputting your code.</b></p>' +
+			'<p><i>Contact nhayward2011@gmail.com if you need to make a change.</i></p>'
 		);
 		$.post(
 			"https://script.google.com/macros/s/AKfycbwfBOa4cvvhXfb7Ug3s-A9W2O9Yt13tPdMFzw-LMIAVVjsAqDY/exec",
@@ -324,14 +331,14 @@ $(window).scroll(function() {
 	        	if (safari) {
 	        		$('#logo img').data('size','small');
 		            $('#logo img').css('background-color', '#000033');
-					$('#logo img').css('max-height', 59);
+					$('#logo img').css('max-height', 97);
 		            $('#logo').width(163);
 		            $('#logo img').width('initial');
 	        	} else {
 		            $('#logo img').data('size','small');
 		            $('#logo img').css('background-color', '#000033');
 		            $('#logo img').stop().animate({
-		                'max-height':'59px'
+		                'max-height':'97px'
 		            },500);
 	        	}
 	        }
