@@ -97,6 +97,16 @@ $(document).ready(function() {
 		$('#wrapper').css('margin-top', 0);
 	}
 
+	if (mobile && !safari) {
+		$('.nav-item').css('min-height', 44);
+		$('#logo').css('background-color', '#000033');
+	}
+
+	if (firefox) {
+		$('#logo').width('100%');
+		$('#logo').width('initial');
+	}
+
 });
 
 var code, name, multiples;

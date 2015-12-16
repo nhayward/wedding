@@ -22,12 +22,6 @@ body {
 	z-index: 1;
 }
 
-/*@media screen and (max-width: 657px) {
-	#nav {
-		position: static;
-	}
-}*/
-
 .nav-item {
 	background-color: #000033;
 	color: #D7D6D4;
@@ -48,12 +42,6 @@ body {
 #logo img {
 	padding: 5px 10px;
 }
-
-/*@media screen and (max-width: 922px) {
-	#logo {
-		display: none !important;
-	}
-}*/
 
 #heading {
 	margin-top: 100px;
