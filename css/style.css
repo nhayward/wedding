@@ -1,6 +1,5 @@
 body {
 	font-family: Georgia, serif;
-	/*font-family: "Trebuchet MS", Helvetica, sans-serif;*/
 	background-color: #000033;
 	background-image: url('../img/backgrounds/NavyStars.png');
 	background-attachment: fixed;
@@ -398,10 +397,8 @@ text {
 	width: 200px;
 }
 
-#rsvp .content > p, #rsvp .content > h3 {
+#rsvp .content p, #rsvp .content > h3 {
 	text-align: center;
-	font-weight: bold;
-	margin-top: 30px;
 }
 
 #rsvp .content #rsvpForm {
@@ -413,7 +410,11 @@ text {
 }
 
 #rsvp .content #rsvpForm input[type=number] {
-	width: 20px;
+	width: 30px;
+}
+
+#rsvp .content #rsvpForm p {
+	text-align: left;
 }
 
 #rsvp .content #rsvpForm p:last-child {

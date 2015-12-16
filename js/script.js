@@ -38,7 +38,6 @@ $(document).ready(function() {
 		infinite: true,
 		speed: 1000,
 		slidesToShow: 1,
-		// adaptiveHeight: true,
 		fade: true,
 		cssEase: 'linear',
 		autoplay: true,
@@ -88,10 +87,10 @@ function whichForm(numParty) {
 		return '<div id="rsvpForm">' +
 					'Dear Nick and Carly,<br />' +
 					'I am <input type="text" name="introAdjective" placeholder="Adjective"> to hear about your upcoming nuptials!<br />' +
-					'<input type="text" name="names" placeholder="Guest Name" maxlength="500" required/> is ' +
+					'<input type="text" name="names" placeholder="Guest Name *" maxlength="500" required/> is ' +
 					'<input type="text" name="adjective" placeholder="Adjective"> to ' +
 					'<select name="attendance" required>' +
-				 		'<option value="" disabled selected>Select</option>' +
+				 		'<option value="" disabled selected>Select *</option>' +
 				 		'<option value="attend">attend</option>' +
 						'<option value="miss">miss</option>' +
 					'</select> the celebration. I can\'t eat ' +
@@ -111,14 +110,14 @@ function whichForm(numParty) {
 		return '<div id="rsvpForm">' +
 					'Dear Nick and Carly,<br />' +
 					'We are <input type="text" name="introAdjective" placeholder="Adjective"> to hear about your upcoming nuptials!<br />' +
-					'<input type="text" name="names" placeholder="Guest Names" maxlength="500" required/> is/are ' +
+					'<input type="text" name="names" placeholder="Guest Names *" maxlength="500" required/> is/are ' +
 					'<input type="text" name="adjective" placeholder="Adjective"> to ' +
 					'<select name="attendance" required>' +
-				 		'<option value="" disabled selected>Select</option>' +
+				 		'<option value="" disabled selected>Select *</option>' +
 				 		'<option value="attend">attend</option>' +
 						'<option value="miss">miss</option>' +
 					'</select> the celebration. There is/are ' +
-					'<input type="number" name="number" min="0" max="5" placeholder="#" required/> attendee(s) in our party. ' +
+					'<input type="number" name="number" min="0" max="5" placeholder="# *" required/> attendee(s) in our party. ' +
 					'<input type="number" name="numberFood" min="0" max="5" placeholder="#"> of us can\'t eat ' +
 					'<input type="text" name="dietaryRestriction" placeholder="Dietary Restrictions" maxlength="500">.<br />' +
 					'Dancing will only happen if ' +
@@ -194,10 +193,12 @@ function checkCodeAndGetInvite() {
 						'Semi-Formal (It’s outside, so heels might be a problem!)</p>' +
 					'</div>' +
 					'<h3>Response Card</h3>' +
-					'<p>Please respond by September 1, 2016 or we will use at least four forms of communication to hassle you.</p><br />';
+					'<p><b>Please respond by September 1, 2016 or we will use at least four forms of communication to hassle you.</b></p><br />';
 			if (valid && !rsvpd) {
 				$('#codeEntry p').remove();
-				$('#rsvp .content').html(invite + whichForm(numInParty));
+				$('#rsvp .content').html(invite + whichForm(numInParty) + 
+											'<p><i>Fields with a * are required</i></p>'
+										);
 			} else if (valid && rsvpd) {
 		        $('#codeEntry p').remove();
 				$('#rsvp .content').html(invite +
@@ -273,6 +274,7 @@ function postContactToGoogle() {
 		if (ieOrEdge) {
 			thankText = '<text y="55" fill="#000033" font-size="50">';
 		}
+		$('#rsvp .content p:last-child').remove();
 		$('#rsvp .content #rsvpForm').html(
 			'<svg width="253" height="75">' +
 				thankText +
