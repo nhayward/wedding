@@ -38,7 +38,7 @@ $(document).ready(function() {
 		infinite: true,
 		speed: 1000,
 		slidesToShow: 1,
-		adaptiveHeight: true,
+		// adaptiveHeight: true,
 		fade: true,
 		cssEase: 'linear',
 		autoplay: true,
@@ -184,15 +184,17 @@ function checkCodeAndGetInvite() {
 						'Nicholas William Hayward<br />' +
 						'together with their families<br />' +
 						'invite you to share and celebrate at their wedding</p>' +
-						'<p>Saturday, September 24, 2016<br />' +
-						'at 4:30 in the afternoon</p>' +
+						'<p>Saturday, the twenty-fourth of September<br />' +
+						'Two thousand and sixteen<br />' +
+						'at four-thirty in the afternoon</p>' +
 						'<p>The Homestead Farm<br />' +
 						'74 Old North Berwick Road<br />' +
-						'Lyman, Maine 04002</p>' +
-						'<p>Dinner and dancing to follow.<br />' +
+						'Lyman, Maine</p>' +
+						'<p>Dinner and dancing to follow<br />' +
 						'Semi-Formal (It’s outside, so heels might be a problem!)</p>' +
-						'<p>RSVP by September 1, 2016 or we will use at least 4 forms of communication to hassle you.</p><br />' +
-					'</div>';
+					'</div>' +
+					'<h3>Response Card</h3>' +
+					'<p>Please respond by September 1, 2016 or we will use at least four forms of communication to hassle you.</p><br />';
 			if (valid && !rsvpd) {
 				$('#codeEntry p').remove();
 				$('#rsvp .content').html(invite + whichForm(numInParty));
