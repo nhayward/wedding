@@ -413,6 +413,10 @@ text {
 	width: 35px;
 }
 
+#rsvp .content #rsvpForm h2 {
+	text-align: center;
+}
+
 #rsvp .content #rsvpForm p {
 	text-align: left;
 }

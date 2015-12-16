@@ -7,6 +7,8 @@ var ieOrEdge = (navigator.userAgent.indexOf('MSIE') != -1 ||
 
 var edge = (navigator.userAgent.indexOf('Edge') != -1);
 
+var firefox = (navigator.userAgent.indexOf("Firefox") != -1 );
+
 var mobile = false;
 
 $(document).ready(function() {
@@ -77,6 +79,8 @@ $(document).ready(function() {
 			$('#logo img').css('max-height', 78);
 			if (safari) {
 				$('#logo').width(200);
+				$('#logo').css('background-color', '#000033');
+				$('#logo').css('max-height', 88);
 	            $('#logo img').width('85.5%');
 			}
 			$('#logo img').css('background-color', '#000033');
@@ -187,9 +191,17 @@ function checkCodeAndGetInvite() {
 					}	
 				}
 			}
-			var invitedText = '<text y="70" fill="none" stroke="#000033" stroke-width="1" font-size="50">';
-			if (ieOrEdge) {
-				invitedText = '<text y="70" fill="#000033" font-size="50">';
+			var invitedText = "";
+			if (!mobile) {
+				invitedText += '<svg width="325" height="80">';
+				if (ieOrEdge) {
+					invitedText += '<text y="70" fill="#000033" font-size="50">';
+				} else {
+					invitedText += '<text y="70" fill="none" stroke="#000033" stroke-width="1" font-size="50">';
+				}
+				invitedText += 'You\'re Invited!</text></svg>';
+			} else {
+				invitedText += '<h2>You\'re Invited!</h2>';
 			}
 			var invite = 
 					'<div id="invite">' +
@@ -197,11 +209,7 @@ function checkCodeAndGetInvite() {
 						'<div id="upper_left"></div>' +
 						'<div id="lower_left"></div>' +
 						'<div id="lower_right"></div>' +
-						'<svg width="325" height="80">' +
-							invitedText +
-								'You\'re Invited!' +
-							'</text>' +
-						'</svg>' +
+						invitedText +
 						'<p>Dear ' + name + ',</p>' +
 						'<p>Carly Thomas Bornstein &<br />' +
 						'Nicholas William Hayward<br />' +
@@ -294,17 +302,21 @@ function postContactToGoogle() {
 				" a seat on the shuttle from the King\'s Port Inn.";
 			}
 		}
-		var thankText = '<text y="55" fill="none" stroke="#000033" stroke-width="1" font-size="50">';
-		if (ieOrEdge) {
-			thankText = '<text y="55" fill="#000033" font-size="50">';
+		var thankText = "";
+		if (!mobile) {
+			thankText += '<svg width="253" height="75">';
+			if (ieOrEdge) {
+				thankText += '<text y="55" fill="#000033" font-size="50">';
+			} else {
+				thankText += '<text y="55" fill="none" stroke="#000033" stroke-width="1" font-size="50">';
+			}
+			thankText += 'Thank You!</text></svg>';
+		} else {
+			thankText += '<h2>Thank You!</h2>';
 		}
 		$('#rsvp .content p:last-child').remove();
 		$('#rsvp .content #rsvpForm').html(
-			'<svg width="253" height="75">' +
-				thankText +
-					'Thank You!' +
-				'</text>' +
-			'</svg>' +
+			thankText +
 			'<p><b>Your response:</b></p>' +
 			'<p>Dear Nick and Carly,</p>' +
 			'<p>' + response + '</p>' +
@@ -344,6 +356,8 @@ if (!mobile) {
 			            $('#logo img').css('background-color', '#000033');
 						$('#logo img').css('max-height', 78);
 			            $('#logo').width(200);
+			            $('#logo').css('background-color', '#000033');
+						$('#logo').css('max-height', 88);
 			            $('#logo img').width('85.5%');
 		        	} else {
 			            $('#logo img').data('size','small');
