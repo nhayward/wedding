@@ -107,6 +107,15 @@ $(document).ready(function() {
 		$('#logo').width('initial');
 	}
 
+	if (!mobile) {
+		document.querySelector('style').textContent += 
+			'@media screen and (max-width: 922px) {' +
+			 	'#logo {' +
+			 		'display: none !important;' +
+			 	'}' +
+			'}';
+	}
+
 });
 
 var code, name, multiples;

@@ -51,12 +51,6 @@ body {
 	margin-top: 68px;
 }
 
-@media screen and (max-width: 657px) {
-	#wrapper {
-		margin-top: 0;
-	}
-}
-
 #wrapper > div {
 	padding: 1px 15% 200px;
 	text-align: center;
