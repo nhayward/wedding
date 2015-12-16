@@ -39,7 +39,6 @@ $(document).ready(function() {
 		speed: 1000,
 		slidesToShow: 1,
 		// adaptiveHeight: true,
-		
 		fade: true,
 		cssEase: 'linear',
 		autoplay: true,

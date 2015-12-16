@@ -1,6 +1,7 @@
 body {
 	font-family: Georgia, serif;
 	/*font-family: "Trebuchet MS", Helvetica, sans-serif;*/
+	background-color: #000033;
 	background-image: url('../img/backgrounds/NavyStars.png');
 	background-attachment: fixed;
 	color: #000033;
