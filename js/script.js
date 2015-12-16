@@ -89,6 +89,8 @@ $(document).ready(function() {
 		$('#logo img').css('max-height', 78);
 		if (safari) {
 			$('#logo').width(200);
+			$('#logo').css('background-color', '#000033');
+			$('#logo').css('max-height', 88);
             $('#logo img').width('85.5%');
 		}
 		$('#logo img').css('background-color', '#000033');
