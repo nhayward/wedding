@@ -136,7 +136,7 @@ function whichForm(numParty) {
 		return '<div id="rsvpForm">' +
 					'Dear Nick and Carly,<br />' +
 					'I am <input type="text" name="introAdjective" placeholder="Adjective"> to hear about your upcoming nuptials!<br />' +
-					'<input type="text" name="names" placeholder="Guest Name *" maxlength="500" required/> is ' +
+					'<input type="text" name="names" placeholder="Your Name *" maxlength="500" required/> is ' +
 					'<input type="text" name="adjective" placeholder="Adjective"> to ' +
 					'<select name="attendance" required>' +
 				 		'<option value="" disabled selected>Select *</option>' +
@@ -159,7 +159,7 @@ function whichForm(numParty) {
 		return '<div id="rsvpForm">' +
 					'Dear Nick and Carly,<br />' +
 					'We are <input type="text" name="introAdjective" placeholder="Adjective"> to hear about your upcoming nuptials!<br />' +
-					'<input type="text" name="names" placeholder="Guest Names *" maxlength="500" required/> is/are ' +
+					'<input type="text" name="names" placeholder="Your Names *" maxlength="500" required/> is/are ' +
 					'<input type="text" name="adjective" placeholder="Adjective"> to ' +
 					'<select name="attendance" required>' +
 				 		'<option value="" disabled selected>Select *</option>' +
