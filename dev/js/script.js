@@ -215,11 +215,11 @@ function checkCodeAndGetInvite() {
 			var invitedText = "";
 			if (!mobile) {
 				invitedText += '<svg width="325" height="80">';
-				// if (ieOrEdge) {
-				// 	invitedText += '<text y="70" fill="#000033" font-size="50">';
-				// } else {
+				if (ieOrEdge) {
+					invitedText += '<text y="70" fill="#000033" font-size="50">';
+				} else {
 					invitedText += '<text y="70" fill="none" stroke="#000033" stroke-width="1" font-size="50">';
-				// }
+				}
 				invitedText += 'You\'re Invited!</text></svg>';
 			} else {
 				invitedText += '<h2>You\'re Invited!</h2>';
@@ -326,11 +326,11 @@ function postContactToGoogle() {
 		var thankText = "";
 		if (!mobile) {
 			thankText += '<svg width="253" height="75">';
-			// if (ieOrEdge) {
-			// 	thankText += '<text y="55" fill="#000033" font-size="50">';
-			// } else {
+			if (ieOrEdge) {
+				thankText += '<text y="55" fill="#000033" font-size="50">';
+			} else {
 				thankText += '<text y="55" fill="none" stroke="#000033" stroke-width="1" font-size="50">';
-			// }
+			}
 			thankText += 'Thank You!</text></svg>';
 		} else {
 			thankText += '<h2>Thank You!</h2>';
