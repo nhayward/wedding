@@ -1,0 +1,416 @@
+body {
+	font-family: Georgia, serif;
+	background-color: #000033;
+	background-image: url('../img/backgrounds/NavyStars.png');
+	background-attachment: fixed;
+	color: #000033;
+	margin: 0;
+	min-width: 658px;
+}
+
+#top {
+	text-align: center;
+}
+
+#nav {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-width: 658px;
+	z-index: 1;
+}
+
+.nav-item {
+	background-color: #000033;
+	color: #D7D6D4;
+	flex-basis: 25%;
+	padding: 25px 10px;
+	text-decoration: none;
+	height: 100%;
+	min-height: 38px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.nav-item:hover {
+	background-color: #282828;
+}
+
+#logo img {
+	padding: 5px 10px;
+}
+
+#heading {
+	margin-top: 100px;
+}
+
+#wrapper {
+	margin-top: 68px;
+}
+
+#wrapper > div {
+	padding: 1px 15% 200px;
+	text-align: center;
+}
+
+@media screen and (max-width: 922px) {
+	#wrapper > div {
+		padding: 1px 5% 100px;
+	}
+}
+
+.header {
+	display: inline-block;
+	font-family: Papyrus, fantasy;
+	font-weight: bold;
+	font-size: 55px;
+	color: #D7D6D4;
+}
+
+.header p {
+	text-shadow:
+		3px 3px 5px #000033,
+		-1px -1px 5px #000033,
+		1px -1px 5px #000033,
+		-1px 1px 5px #000033,
+		1px 1px 5px #000033;
+}
+
+.content {
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 20px;
+	padding: 10px 20px;
+	text-align: left;
+}
+
+#introImage, #introHeart {
+	display: block;
+	width: 100%;
+	margin: 20px auto;
+}
+
+#introImage {
+	max-width: 550px;
+}
+
+#introHeart {
+	max-width: 150px;
+}
+
+#intro {
+	line-height: 235%;
+	padding-top: 200px !important;
+}
+
+#intro .content {
+	padding: 10px 30px;
+	text-align: center;
+}
+
+#carousel {
+	margin-top: 200px;
+}
+
+#carousel img {
+	display: block;
+	margin: auto;
+	width: 100%;
+}
+
+#carousel .landscape {
+	max-width: 750px;
+}
+
+#carousel .portrait {
+	max-width: 333px;
+}
+
+#venue {
+	background-image: url('../img/backgrounds/Homestead5.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+	text-align: center;
+}
+
+#venue .content {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+#venueInnerImg {
+	flex-basis: 35%;
+	padding-right: 20px;
+}
+
+#venueInnerImg img {
+	width: 100%;
+}
+
+#venueText {
+	flex-basis: 62%;
+	flex-grow: 1;
+	line-height: 200%;
+}
+
+#party {
+	padding: 1px 0 200px !important;
+}
+
+#party #partyBoxes {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding: 0px !important;
+}
+
+#party #partyBoxes .content {
+	flex-basis: 425px;
+	flex-grow: 1;
+	margin: 50px 20px;
+	border-radius: 20px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#party #partyBoxes .content .bobble {
+	flex-grow: 1;
+	text-align: center;
+}
+
+#party #partyBoxes .content .bobble img {
+	max-height: 399px;
+	max-width: 250px;
+}
+
+#party #partyBoxes .content .partyText {
+	flex-basis: 45%;
+	flex-grow: 1;
+}
+
+#amenities {
+	background-image: url('../img/backgrounds/KennebunkMap.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+}
+
+#amenities .content {
+	line-height: 150%;
+}
+
+#amenities .content h2 {
+	text-align: center;
+}
+
+#amenities .content img {
+	float: left;
+	margin-right: 20px;
+}
+
+#amenities .content #amenitiesInfo {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#amenities .content #amenitiesInfo #info {
+	flex-basis: 30%;
+	flex-grow: 1;
+	margin-right: 10px;
+}
+
+#amenities .content #amenitiesInfo #mapContainer {
+	width: 500px;
+	height: 375px;
+}
+
+#amenities .content .scrolloff {
+    pointer-events: none;
+}
+
+#registry .content {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#registry .content a {
+	margin: 20px;
+}
+
+#registry .content img {
+	flex-basis: 400px;
+}
+
+#registry .content img:first-child {
+	flex-basis: 100%;
+}
+
+#hfLogo {
+	width: 850px;
+}
+
+#bbbLogo, #aLogo {
+	width: 400px;
+	height: 100%;
+	margin: auto;
+}
+
+#hfLogo img, #bbbLogo img, #aLogo img {
+	width: 100%;
+}
+
+#rsvp {
+	background-image: url('../img/backgrounds/envelope_logo.jpg');
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center center;
+}
+
+#codeEntry {
+	font-family: Papyrus, fantasy;
+	font-weight: bold;
+	text-align: center;
+	padding: 50px 0;
+}
+
+#rsvp .content {
+	display: block;
+	margin: auto;
+	max-width: 575px;
+}
+
+#rsvp .content svg {
+	display: block;
+	margin: auto;
+}
+
+text {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  -webkit-animation: draw 8s forwards;
+  -moz-animation: draw 8s forwards;
+  -o-animation: draw 8s forwards;
+  -ms-animation: draw 8s forwards;
+  animation: draw 8s forwards;
+}
+@-webkit-keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-moz-keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-o-keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@-ms-keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+#rsvp .content #invite {
+	position: relative;
+	text-align: center;
+	padding: 45px 45px 60px;
+	font-weight: bold;
+	font-family: Papyrus, fantasy;
+}
+
+#rsvp .content #invite #upper_right {
+	position: absolute;
+	background-image: url(../img/scrollwork_corner_navy_tr.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	top: 5px;
+	right: 0%;
+	height: 200px;
+	width: 200px;
+}
+
+#rsvp .content #invite #upper_left {
+	position: absolute;
+	background-image: url(../img/scrollwork_corner_navy_tl.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	top: 5px;
+	left: 0;
+	height: 200px;
+	width: 200px;
+}
+
+#rsvp .content #invite #lower_left {
+	position: absolute;
+	background-image: url(../img/scrollwork_corner_navy_bl.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	bottom: 0%;
+	left: 0;
+	height: 200px;
+	width: 200px;
+}
+
+#rsvp .content #invite #lower_right {
+	bottom: 0%;
+	background-image: url(../img/scrollwork_corner_navy_br.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	right: 0%;
+	position: absolute;
+	height: 200px;
+	width: 200px;
+}
+
+#rsvp .content p, #rsvp .content > h3 {
+	text-align: center;
+}
+
+#rsvp .content #rsvpForm {
+	line-height: 2;
+	max-width: 600px;
+	border: 5px solid #060761;
+	margin: 20px auto;
+	padding: 10px;
+}
+
+#rsvp .content #rsvpForm input[type=number] {
+	width: 35px;
+}
+
+#rsvp .content #rsvpForm h2 {
+	text-align: center;
+}
+
+#rsvp .content #rsvpForm p {
+	text-align: left;
+}
+
+#rsvp .content #rsvpForm p:last-child {
+	text-align: center;
+}
+
+#footer {
+	background-color: #000033;
+	color: #D7D6D4;
+	font-size: 12px;
+	text-align: center;
+	padding: 1px;
+}
