@@ -13,6 +13,9 @@ body {
 }
 
 #nav {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
 	position: fixed;
 	top: 0;
@@ -25,14 +28,25 @@ body {
 .nav-item {
 	background-color: #000033;
 	color: #D7D6D4;
-	flex-basis: 25%;
+	-webkit-flex-basis: 25%;
+	    -ms-flex-preferred-size: 25%;
+	        flex-basis: 25%;
 	padding: 25px 10px;
 	text-decoration: none;
 	height: 100%;
 	min-height: 38px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 
 .nav-item:hover {
@@ -137,13 +151,23 @@ body {
 }
 
 #venue .content {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 
 #venueInnerImg {
-	flex-basis: 35%;
+	-webkit-flex-basis: 35%;
+	    -ms-flex-preferred-size: 35%;
+	        flex-basis: 35%;
 	padding-right: 20px;
 }
 
@@ -152,8 +176,13 @@ body {
 }
 
 #venueText {
-	flex-basis: 62%;
-	flex-grow: 1;
+	-webkit-flex-basis: 62%;
+	    -ms-flex-preferred-size: 62%;
+	        flex-basis: 62%;
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
 	line-height: 200%;
 }
 
@@ -162,23 +191,43 @@ body {
 }
 
 #party #partyBoxes {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
 	padding: 0px !important;
 }
 
 #party #partyBoxes .content {
-	flex-basis: 425px;
-	flex-grow: 1;
+	-webkit-flex-basis: 425px;
+	    -ms-flex-preferred-size: 425px;
+	        flex-basis: 425px;
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
 	margin: 50px 20px;
 	border-radius: 20px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
 }
 
 #party #partyBoxes .content .bobble {
-	flex-grow: 1;
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
 	text-align: center;
 }
 
@@ -188,8 +237,13 @@ body {
 }
 
 #party #partyBoxes .content .partyText {
-	flex-basis: 45%;
-	flex-grow: 1;
+	-webkit-flex-basis: 45%;
+	    -ms-flex-preferred-size: 45%;
+	        flex-basis: 45%;
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
 }
 
 #amenities {
@@ -213,15 +267,31 @@ body {
 }
 
 #amenities .content #amenitiesInfo {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-between;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 }
 
 #amenities .content #amenitiesInfo #info {
-	flex-basis: 30%;
-	flex-grow: 1;
+	-webkit-flex-basis: 30%;
+	    -ms-flex-preferred-size: 30%;
+	        flex-basis: 30%;
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	    -ms-flex-positive: 1;
+	        flex-grow: 1;
 	margin-right: 10px;
 }
 
@@ -235,10 +305,20 @@ body {
 }
 
 #registry .content {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
 	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: space-around;
+	-webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
 }
 
 #registry .content a {
@@ -246,11 +326,15 @@ body {
 }
 
 #registry .content img {
-	flex-basis: 400px;
+	-webkit-flex-basis: 400px;
+	    -ms-flex-preferred-size: 400px;
+	        flex-basis: 400px;
 }
 
 #registry .content img:first-child {
-	flex-basis: 100%;
+	-webkit-flex-basis: 100%;
+	    -ms-flex-preferred-size: 100%;
+	        flex-basis: 100%;
 }
 
 #hfLogo {
@@ -296,27 +380,9 @@ text {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   -webkit-animation: draw 8s forwards;
-  -moz-animation: draw 8s forwards;
-  -o-animation: draw 8s forwards;
-  -ms-animation: draw 8s forwards;
   animation: draw 8s forwards;
 }
 @-webkit-keyframes draw {
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-@-moz-keyframes draw {
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-@-o-keyframes draw {
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-@-ms-keyframes draw {
   100% {
     stroke-dashoffset: 0;
   }
